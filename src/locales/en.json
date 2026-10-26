@@ -1,9 +1,8 @@
 {
   "nav": {
-    "about": "About",
     "projects": "Projects",
-    "experience": "Experience",
     "stack": "Tech Stack",
+    "experience": "Experience",
     "education": "Education",
     "contact": "Contact",
     "cv": "View CV",
@@ -11,128 +10,125 @@
     "switchLang": "Switch language"
   },
   "hero": {
-    "status": "Available for new engineering opportunities & ambitious projects",
+    "status": "Open for Engineering Roles & Ambitious Systems",
+    "tagline": "Software Engineering Console & Deep Space Exploration",
     "greeting": "Hi, I'm",
     "name": "Juan Pedro Suñer",
     "role": "Backend / Fullstack Developer",
     "subrole": "Advanced Information Systems Engineering Student (UNLP)",
-    "description": "Specialized in scalable architectures, distributed systems, backend optimization, and high-performance geospatial and astronomical data visualization. Blending rigorous computer science fundamentals with modern AI-accelerated workflows.",
+    "description": "Specialized in scalable architectures, distributed systems, backend optimization, and deep-space multi-spectral astronomical data processing. Combining computer science fundamentals with modern AI-accelerated workflows.",
     "ctaProjects": "Explore Projects",
     "ctaCv": "Download CV",
     "ctaContact": "Get in Touch",
-    "terminalTitle": "jp-suner ~ developer-env (zsh)",
     "location": "La Plata, Buenos Aires, Argentina",
-    "quickStats": {
+    "telemetry": {
+      "title": "SYSTEM TELEMETRY // OBSERVATORY NODE",
+      "specialization": "Backend & Distributed Systems",
       "academic": "UNLP Computer Science (4th year)",
       "english": "English C1 Advanced",
-      "specialization": "Backend & Distributed Systems",
-      "uptime": "99.9% Uptime Mindset"
+      "missions": "JWST · Hubble · Chandra · Gaia"
     }
-  },
-  "terminal": {
-    "help": "Available commands: info, stack, contact, clear, run-astronomy",
-    "infoOutput": "Juan Pedro Suñer — Information Systems Engineering Student (UNLP) & Backend/Fullstack Developer. Focus on performance, resilient APIs, and space exploration.",
-    "stackOutput": "TypeScript, Python, Java, PostgreSQL, Next.js, Spring Boot, Docker, MapLibre GL.",
-    "contactOutput": "Email: sunerjuan240@gmail.com | GitHub: github.com/N3GRON | Phone: +54 9 2281 301944"
   },
   "projects": {
     "sectionBadge": "Engineering Catalog",
     "title": "Featured Projects",
-    "subtitle": "Systems engineered with an emphasis on architectural resilience, scientific data visualization, and performance optimization.",
-    "filterAll": "All Projects",
-    "filterAstronomy": "Astronomy & Maps",
-    "filterDistributed": "Distributed Systems",
-    "filterBackend": "Backend & APIs",
-    "viewCode": "Source Code",
-    "viewDemo": "Interactive Demo",
-    "highlightsLabel": "Architectural Highlights",
-    "technologiesLabel": "Stack & Tooling",
-    "interactivePreview": "Live Simulator / Visualizer",
+    "subtitle": "Systems engineered with an emphasis on architectural resilience, multi-spectral observability, and concurrency control.",
+    "viewCode": "View Repository",
+    "viewDemo": "Live Demo",
+    "placeholderLabel": "Visual Mockup Shell Ready",
+    "placeholderHint": "Crafted interface container ready for official screenshots",
+    "flagshipBadge": "FLAGSHIP PLATFORM // LIVE DEPLOYMENT",
+    "spectralConsole": "Interactive Spectral Laboratory",
+    "spectralHint": "Adjust spectral channels in real time simulating space telescope multi-wavelength blending",
     "items": {
       "aetherscope": {
-        "title": "AetherScope / FlareField",
-        "subtitle": "Astronomical Visualization Platform & Real-Time Space Weather Alert System",
-        "categoryLabel": "Astronomy & Maps",
-        "description": "Interactive platform designed for researchers, drone operators, and space enthusiasts for visual exploration of stellar catalogs and real-time monitoring of geomagnetic storms consuming live NASA (DONKI) and NOAA APIs.",
+        "title": "AetherScope",
+        "subtitle": "Deep Space Exploration & Spectral Analysis Platform",
+        "categoryLabel": "Deep Space & WebGL2",
+        "description": "Interactive deep-space exploration platform and spectroscopic laboratory. Features a 360° WebGL2 sky viewer powered by Aladin Lite (Rust/WASM) to navigate massive astronomical catalogs and blend multi-wavelength survey data in real time with Supabase persistence.",
         "highlights": [
-          "High-performance geospatial & celestial rendering using MapLibre GL and Canvas for smooth celestial coordinate plotting.",
-          "Structured caching layer reducing latency on continuous external solar and geomagnetic telemetry ingestion.",
-          "AI-accelerated development workflow with strict TypeScript typing ensuring fault tolerance and zero runtime surprises."
+          "360° WebGL2 sky viewer with real-time multi-spectral blending (JWST Infrared, Hubble/DSS2 Optical, Chandra X-Ray).",
+          "Zero-latency streaming of hierarchical progressive HiPS tile pipelines (CDS / ESA / NASA).",
+          "Spectroscopic laboratory module to infer physical phenomena, chemical composition, with user cataloging and JSON data exports."
         ],
+        "badges": ["Next.js", "TypeScript", "Rust / WASM", "WebGL2", "Supabase", "HiPS / NASA APIs"],
         "metrics": [
-          { "label": "Data Sources", "value": "NASA DONKI & NOAA" },
-          { "label": "Visualization", "value": "60 FPS Canvas / WebGL" },
-          { "label": "API Latency", "value": "< 120ms cached" }
+          { "label": "Space Surveys", "value": "JWST · Hubble · Chandra · Gaia" },
+          { "label": "360° Engine", "value": "Rust / WASM + WebGL2" },
+          { "label": "Persistence", "value": "Supabase PostgreSQL" }
         ]
       },
       "rescuesync": {
         "title": "RescueSync / DSSD",
-        "subtitle": "Distributed Emergency Management & Real-Time Resource Coordination Platform",
+        "subtitle": "Distributed Emergency Coordination & Real-Time Resource Allocation Platform",
         "categoryLabel": "Distributed Systems",
-        "description": "Comprehensive distributed system designed to coordinate disaster response, managing regional risk tiers, critical resource inventories, and verification of organization credentials (NGOs, firefighters, medical teams) via business process orchestration.",
+        "description": "Distributed platform designed to coordinate disaster response, managing regional risk tiers, critical brigade resource stocks, and credential validation for NGOs via business process orchestration.",
         "highlights": [
           "Decoupled microservice architecture with Java Spring Boot and ACID transactional persistence on PostgreSQL.",
-          "BPM process orchestration powered by Bonita Engine REST API for contingency workflows and certification verification.",
-          "Concurrency control on medical supply allocation and granular Role-Based Access Control (JWT multi-tenant security)."
+          "Contingency orchestration powered by Bonita BPM REST API for credential review and disaster mitigation pipelines.",
+          "Pessimistic concurrency locking for medical supply allocation with multi-tenant JWT Role-Based Access Control."
         ],
+        "badges": ["Java Spring Boot", "Angular", "PostgreSQL", "Bonita BPM", "Docker", "REST API"],
         "metrics": [
-          { "label": "Orchestration", "value": "Bonita BPM Engine" },
-          { "label": "Security", "value": "JWT RBAC Multi-tenant" },
-          { "label": "Deployment", "value": "Docker Multi-stage" }
+          { "label": "Orchestration", "value": "Bonita BPM REST Engine" },
+          { "label": "Concurrency", "value": "Pessimistic Locking" },
+          { "label": "Isolation", "value": "Docker Multi-stage" }
         ]
       },
       "alquilando": {
-        "title": "Alquilando & High-Performance Backend",
-        "subtitle": "Vehicle Fleet Management System & High-Performance Modular Services",
-        "categoryLabel": "Backend & APIs",
-        "description": "Vehicle fleet reservation and rental backend featuring an optimized relational database schema, strict temporal availability logic, and modular Python services (Flask/Django) with secure authentication and database query optimization.",
+        "title": "Alquilando",
+        "subtitle": "Vehicle Rental Management System & Fleet Availability Engine",
+        "categoryLabel": "Backend & Relational Modeling",
+        "description": "Comprehensive backend system for vehicle fleet reservation and rental management, implementing business logic to prevent temporal overbooking, handle dynamic pricing, and maintain relational referential integrity.",
         "highlights": [
-          "Robust relational data model with composite indexes, foreign key integrity, and isolated transactions.",
-          "Strict business logic preventing reservation overlaps and facilitating dynamic fleet pricing calculation.",
-          "Docker containerization and unit test automation ensuring code auditability and rapid continuous integration."
+          "Optimized relational schema in PostgreSQL with composite indexing delivering sub-millisecond query execution.",
+          "Strict business logic in Django/Python validating non-overlapping date ranges and referential integrity constraints.",
+          "Granular role-based permissions separating fleet operators, administrative staff, and end customers."
         ],
+        "badges": ["Django", "Python", "PostgreSQL", "SQL", "Docker"],
         "metrics": [
-          { "label": "Frameworks", "value": "Django & Flask" },
+          { "label": "Framework", "value": "Django ORM" },
           { "label": "Persistence", "value": "PostgreSQL Indexed" },
-          { "label": "Isolation", "value": "Docker Containers" }
+          { "label": "Integrity", "value": "ACID Referential" }
         ]
       }
     }
   },
   "stack": {
     "sectionBadge": "Core Competencies",
-    "title": "Tech Stack & Ecosystem",
-    "subtitle": "Carefully selected technologies to build predictable, fast, and maintainable software systems.",
-    "searchPlaceholder": "Search technology or framework (e.g., Docker, React, Spring Boot)...",
+    "title": "Vector Tech Ecosystem",
+    "subtitle": "Engineering tooling selected to construct deterministic, fault-tolerant, and high-performance software systems.",
+    "searchPlaceholder": "Filter technologies (e.g. TypeScript, Docker, PostgreSQL, WebGL2)...",
     "categories": {
       "languages": "Programming Languages",
-      "frontend": "Frontend & UI Visualization",
-      "backend": "Backend, Databases & Cloud",
-      "tools": "Environments, Systems & DevOps",
+      "frameworks": "Frameworks & Libraries",
+      "data": "Databases & Data Modeling",
+      "tools": "Tools, Systems & Environments",
       "ai": "AI-Driven Development & Quality"
     }
   },
   "experience": {
-    "sectionBadge": "Work & Academic Experience",
+    "sectionBadge": "Work & Academic Trajectory",
     "title": "Professional Experience",
-    "subtitle": "University teaching assistantship in software development, critical IT infrastructure management, and freelance engineering.",
+    "subtitle": "University computer science teaching, critical infrastructure support, and software engineering.",
     "items": {
       "academic": {
-        "role": "Academic Collaborator / Teaching Assistant",
+        "role": "Academic Collaborator",
         "institution": "Facultad de Informática — UNLP",
+        "department": "Programming Languages Seminar (Python Option)",
         "period": "2026 – Present",
         "location": "La Plata, Argentina",
         "bullets": [
-          "Assisting university professors with technical inquiries, practical assignment grading, and pedagogical mentoring in the Programming Languages Seminar (Python option).",
-          "Mentored a cohort of over 40 undergraduate students in algorithmic logic, clean Python paradigms, and version control using Git, achieving a high course pass rate.",
-          "Optimized the grading and feedback process by standardizing evaluation rubrics, slashing response times to students by 30%.",
-          "Evaluated software projects for 4 team squads (20 students total), delivering technical code reviews focused on design patterns, clean architecture, and testing."
+          "Responsible for assisting university professors in resolving technical queries, grading practical assignments, and providing pedagogical support.",
+          "Instructed a cohort of over 40 university students in programming logic, Python best practices, and version control using Git, achieving a high course pass rate.",
+          "Optimized the grading and feedback process by standardizing evaluation rubrics, reducing response times to students by 30%.",
+          "Evaluated code projects for 4 work teams (20 students in total), providing technical feedback focused on best practices and clean software design."
         ],
         "metrics": [
           { "label": "Students Mentored", "value": "40+ students" },
-          { "label": "Grading Speedup", "value": "30% faster feedback" }
+          { "label": "Feedback Speedup", "value": "30% faster" }
         ],
-        "tags": ["Python", "Git & GitHub", "Clean Code", "Technical Mentoring", "Code Review"]
+        "tags": ["Python", "Git", "Clean Architecture", "Code Review", "Academic Mentoring"]
       },
       "freelance": {
         "role": "Freelance IT Technician",
@@ -140,16 +136,16 @@
         "period": "2022 – Present",
         "location": "La Plata / Remote",
         "bullets": [
-          "Delivered end-user technical support specializing in hardware diagnostics, component upgrades, and advanced OS optimization.",
-          "Performed diagnostics, repairs, and preventive maintenance on high-performance desktop rigs and laptops, extending equipment lifespan.",
-          "Independently spearheaded the complete customer service lifecycle, from hardware intake and quotes to final delivery and preventive advisory.",
-          "Engineered personal Fullstack and Backend projects in parallel to master modern distributed architectures and strengthen an active codebase."
+          "Responsible for providing technical support to end-users, specializing in hardware repair, component upgrades, and OS configuration.",
+          "Executed diagnostics, repair, and preventive maintenance of hardware and software on desktop PCs and laptops, successfully extending equipment lifespan.",
+          "Managed the complete customer service cycle independently, from equipment intake and budgeting to final delivery and technical advising.",
+          "Developed personal software projects (Fullstack and Backend) in parallel to strengthen technical skills, explore new architectures, and build an active portfolio."
         ],
         "metrics": [
-          { "label": "Customer Satisfaction", "value": "100%" },
-          { "label": "Service Lifecycle", "value": "End-to-End" }
+          { "label": "Service Cycle", "value": "End-to-End" },
+          { "label": "Scope", "value": "Hardware & Software" }
         ],
-        "tags": ["Hardware Diagnostics", "Windows & Linux OS", "Customer Relations", "PC Building"]
+        "tags": ["Hardware Diagnostics", "Linux & Windows OS", "Client Lifecycle", "Performance Tuning"]
       },
       "pharmacy": {
         "role": "IT Consultant & Systems Support",
@@ -157,17 +153,17 @@
         "period": "2019 – 2022",
         "location": "La Plata, Argentina",
         "bullets": [
-          "Maintained daily technical support, local IT infrastructure reliability, and operating system incident resolution for the commercial pharmacy.",
-          "Supervised company hardware and workstations, maintaining 99% operational availability across point-of-sale and stock management terminals.",
-          "Automated software maintenance and update routines, cutting operational downtime incidents by 25% during peak business hours.",
-          "Migrated and configured new workstations and POS peripherals, driving Mean Time To Repair (MTTR) down to under 15 minutes."
+          "Responsible for daily technical support, IT infrastructure maintenance, and OS incident resolution for the pharmacy.",
+          "Managed the company's IT equipment, ensuring 99% operational availability for billing and stock management terminals.",
+          "Automated the maintenance and update process of the sales software, reducing operational downtime incidents by 25% during peak business hours.",
+          "Migrated and installed new workstations and point-of-sale peripherals, decreasing the Mean Time To Repair (MTTR) for system failures to under 15 minutes."
         ],
         "metrics": [
-          { "label": "System Availability", "value": "99% Uptime" },
-          { "label": "MTTR for failures", "value": "< 15 minutes" },
+          { "label": "Availability", "value": "99% Uptime" },
+          { "label": "MTTR Resolution", "value": "< 15 min" },
           { "label": "Downtime Reduction", "value": "25% decrease" }
         ],
-        "tags": ["Infrastructure", "System Uptime", "Automation", "Disaster Recovery", "POS Systems"]
+        "tags": ["Infrastructure", "99% Uptime", "Automation", "POS Terminals"]
       }
     }
   },
@@ -179,17 +175,17 @@
     "faculty": "Facultad de Informática",
     "period": "2023 – Present (4th year)",
     "status": "Active Advanced Student",
-    "description": "Rigorous foundation in computer science theory, algorithmic design, relational database internals, operating systems, computer architecture, software engineering paradigms, and distributed system architectures.",
-    "languagesTitle": "Languages & Proficiencies",
+    "description": "Rigorous training in computer science fundamentals, data structures and algorithms, relational database internals, operating systems, computer architecture, software engineering paradigms, and distributed system architectures.",
+    "languagesTitle": "Languages & Professional Proficiency",
     "languages": {
       "es": { "name": "Spanish", "level": "Native speaker" },
-      "en": { "name": "English", "level": "C1 Advanced (Full professional proficiency, technical fluency, and rapid comprehension of complex engineering documentation)" }
+      "en": { "name": "English", "level": "C1 Advanced (Full professional proficiency, fluent reading of technical documentation, and agile technical communication)" }
     }
   },
   "contact": {
-    "sectionBadge": "Get in Touch",
-    "title": "Let's build something remarkable",
-    "subtitle": "Have an engineering challenge, an open role, or want to collaborate on distributed systems or space visualization? Drop a line and I'll reply promptly.",
+    "sectionBadge": "Direct Channel",
+    "title": "Let's start a technical conversation",
+    "subtitle": "Have an engineering role open, a challenge in distributed systems, or want to collaborate on scientific software? Reach out directly.",
     "copyEmail": "Copy email address",
     "emailCopied": "Email copied to clipboard!",
     "form": {
@@ -199,32 +195,32 @@
       "message": "Message",
       "send": "Send Message",
       "sending": "Sending...",
-      "success": "Message received! I'll get back to you shortly.",
-      "error": "An error occurred. You can write directly to sunerjuan240@gmail.com"
+      "success": "Message sent successfully! I'll get back to your email address shortly.",
+      "error": "An error occurred. Please email sunerjuan240@gmail.com"
     },
     "directChannels": "Direct Channels",
     "emailLabel": "Email",
     "phoneLabel": "Phone / WhatsApp",
     "locationLabel": "Location",
-    "githubLabel": "GitHub Profile",
-    "resumeDownloadAction": "Download Resume (PDF)"
+    "githubLabel": "GitHub",
+    "resumeDownloadAction": "Open CV Viewer (PDF)"
   },
   "cvModal": {
     "title": "Curriculum Vitae — Juan Pedro Suñer",
-    "subtitle": "Choose the preferred language to view or download as a formatted PDF.",
-    "spanishVersion": "Versión en Español (CV_Suner_ES.pdf)",
-    "englishVersion": "English Version (CV_Suner_EN.pdf)",
-    "downloadPdf": "Download PDF Document",
+    "subtitle": "Select language to preview or download the official PDF document accordingly.",
+    "spanishVersion": "Versión en Español (CV_Espanol.pdf)",
+    "englishVersion": "English Version (CV_English.pdf)",
+    "downloadPdf": "Download Official PDF",
     "printView": "Print / Save as PDF",
     "close": "Close",
     "roleTag": "Backend / Fullstack Developer",
-    "academicTag": "Information Systems Engineering Student - UNLP"
+    "academicTag": "UNLP Computer Science · 4th year"
   },
   "footer": {
     "brandText": "Juan Pedro Suñer",
-    "role": "Software Engineer & Full Stack Developer",
-    "tagline": "Crafted with precision, developer-tool aesthetics, and uncompromised performance.",
-    "backToTop": "Back to top",
+    "role": "Backend / Fullstack Developer · UNLP",
+    "tagline": "Software engineering console crafted with warm dark aesthetics and precision performance.",
+    "backToTop": "Top",
     "allRightsReserved": "All rights reserved."
   }
 }

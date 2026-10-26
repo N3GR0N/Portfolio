@@ -11,26 +11,26 @@ export const Footer: React.FC = () => {
   };
 
   return (
-    <footer className="relative py-12 border-t border-white/[0.08] bg-[#07080d] text-xs font-mono text-slate-400">
+    <footer className="relative py-14 border-t border-stone-800/80 bg-[#090807] text-xs font-mono text-stone-400">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand & Monogram */}
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-[#121422] border border-white/10 flex items-center justify-center font-bold text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-sky-400 text-xs">
+            <div className="w-8 h-8 rounded-lg bg-stone-900 border border-stone-800 flex items-center justify-center font-bold text-amber-300 text-xs shadow-inner">
               JP
             </div>
             <div>
-              <span className="font-semibold text-slate-200 block text-xs">
+              <span className="font-bold text-stone-200 block text-xs">
                 Juan Pedro Suñer
               </span>
-              <span className="text-[10px] text-slate-500">
-                Backend / Fullstack Developer · UNLP
+              <span className="text-[10px] text-stone-500">
+                Backend &amp; Fullstack Engineer · UNLP
               </span>
             </div>
           </div>
 
-          {/* Precision quote */}
-          <div className="text-center text-slate-400 text-[11px] max-w-md">
+          {/* Precision Tagline */}
+          <div className="text-center text-stone-400 text-[11px] max-w-md">
             <span>{t('footer.tagline')}</span>
           </div>
 
@@ -40,35 +40,35 @@ export const Footer: React.FC = () => {
               href="https://github.com/N3GRON"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-white transition-colors"
+              className="text-stone-400 hover:text-amber-300 transition-colors"
               title="GitHub"
             >
               <GithubIcon className="w-4 h-4" />
             </a>
             <a
               href="mailto:sunerjuan240@gmail.com"
-              className="text-slate-400 hover:text-white transition-colors"
+              className="text-stone-400 hover:text-amber-300 transition-colors"
               title="Email"
             >
               <Mail className="w-4 h-4" />
             </a>
             <button
               onClick={scrollToTop}
-              className="p-2 rounded-xl bg-white/[0.03] hover:bg-white/[0.08] border border-white/10 text-slate-300 hover:text-white transition-all flex items-center gap-1.5"
+              className="p-2 rounded-xl bg-stone-900/80 hover:bg-stone-800 border border-stone-800 text-stone-300 hover:text-white transition-all flex items-center gap-1.5"
               title={t('footer.backToTop')}
             >
-              <ArrowUp className="w-3.5 h-3.5" />
+              <ArrowUp className="w-3.5 h-3.5 text-amber-400" />
               <span className="text-[10px] uppercase tracking-wider">{t('footer.backToTop')}</span>
             </button>
           </div>
         </div>
 
-        <div className="mt-8 pt-6 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between gap-2 text-[10px] text-slate-500">
+        <div className="mt-8 pt-6 border-t border-stone-800/60 flex flex-col sm:flex-row items-center justify-between gap-2 text-[10px] text-stone-500">
           <div>
             © {new Date().getFullYear()} Juan Pedro Suñer. {t('footer.allRightsReserved')}
           </div>
-          <div className="flex items-center gap-1">
-            <span>Built with React 19, TypeScript &amp; Tailwind CSS</span>
+          <div className="flex items-center gap-1 text-stone-400">
+            <span>Engineered with React 19, TypeScript &amp; Tailwind CSS</span>
           </div>
         </div>
       </div>

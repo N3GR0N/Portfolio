@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
-import { StarfieldCanvas } from './components/StarfieldCanvas';
+import { CosmicGridCanvas } from './components/CosmicGridCanvas';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { Projects } from './components/Projects';
@@ -10,24 +10,22 @@ import { Education } from './components/Education';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { CvModal } from './components/CvModal';
-import { ProjectInteractiveModal } from './components/ProjectInteractiveModal';
 
 export const AppContent: React.FC = () => {
   const [isCvModalOpen, setIsCvModalOpen] = useState(false);
-  const [activeSandboxProject, setActiveSandboxProject] = useState<string | null>(null);
 
   return (
-    <div className="relative min-h-screen bg-[#090a0f] text-slate-100 selection:bg-indigo-500/30 selection:text-indigo-200">
-      {/* Dynamic Starfield & Celestial particle background */}
-      <StarfieldCanvas />
+    <div className="relative min-h-screen bg-[#0b0b0c] text-stone-200 selection:bg-amber-600/30 selection:text-amber-200">
+      {/* Subtle Technical Reticle & Vector Canvas */}
+      <CosmicGridCanvas />
 
-      {/* Main navigation */}
+      {/* Persistent Precision Header */}
       <Navbar onOpenCv={() => setIsCvModalOpen(true)} />
 
-      {/* Page Sections */}
+      {/* Main Sections */}
       <main className="relative z-10">
         <Hero onOpenCv={() => setIsCvModalOpen(true)} />
-        <Projects onOpenSandbox={(id) => setActiveSandboxProject(id)} />
+        <Projects />
         <TechStack />
         <ExperienceTimeline />
         <Education />
@@ -37,15 +35,10 @@ export const AppContent: React.FC = () => {
       {/* Footer */}
       <Footer />
 
-      {/* Interactive Modals */}
+      {/* CV Modal with instant ES / EN PDF previews and download */}
       <CvModal
         isOpen={isCvModalOpen}
         onClose={() => setIsCvModalOpen(false)}
-      />
-
-      <ProjectInteractiveModal
-        projectId={activeSandboxProject}
-        onClose={() => setActiveSandboxProject(null)}
       />
     </div>
   );
