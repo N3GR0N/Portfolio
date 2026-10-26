@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
 import { CosmicGridCanvas } from './components/CosmicGridCanvas';
 import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
+import { SmokedGlassHero } from './components/SmokedGlassHero';
+import { GlassDefinitionsView } from './components/GlassDefinitionsView';
 import { Projects } from './components/Projects';
 import { TechStack } from './components/TechStack';
 import { ExperienceTimeline } from './components/ExperienceTimeline';
@@ -13,18 +14,35 @@ import { CvModal } from './components/CvModal';
 
 export const AppContent: React.FC = () => {
   const [isCvModalOpen, setIsCvModalOpen] = useState(false);
+  const [isShattered, setIsShattered] = useState(false);
+
+  const scrollToProjects = () => {
+    const el = document.getElementById('projects');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
-    <div className="relative min-h-screen bg-[#0b0b0c] text-stone-200 selection:bg-amber-600/30 selection:text-amber-200">
-      {/* Subtle Technical Reticle & Vector Canvas */}
+    <div className="relative min-h-screen bg-[#050507] text-stone-200 selection:bg-amber-600/30 selection:text-amber-200">
+      {/* Background Reticle and Atmospheric Texture */}
       <CosmicGridCanvas />
 
-      {/* Persistent Precision Header */}
+      {/* Floating Precision Navigation */}
       <Navbar onOpenCv={() => setIsCvModalOpen(true)} />
 
-      {/* Main Sections */}
+      {/* 1. Main WebGL Smoked Glass Hero */}
+      <SmokedGlassHero
+        onOpenCv={() => setIsCvModalOpen(true)}
+        onExploreProjects={scrollToProjects}
+        onShatterChange={(shattered) => setIsShattered(shattered)}
+      />
+
+      {/* 2. Shattered Dossier View: "Real-time engineering, in five terms" */}
+      {isShattered && (
+        <GlassDefinitionsView onBack={() => setIsShattered(false)} />
+      )}
+
+      {/* 3. Deep Dive Engineering Catalog & Sections */}
       <main className="relative z-10">
-        <Hero onOpenCv={() => setIsCvModalOpen(true)} />
         <Projects />
         <TechStack />
         <ExperienceTimeline />
@@ -35,7 +53,7 @@ export const AppContent: React.FC = () => {
       {/* Footer */}
       <Footer />
 
-      {/* CV Modal with instant ES / EN PDF previews and download */}
+      {/* Official CV Modal with dual PDF downloads */}
       <CvModal
         isOpen={isCvModalOpen}
         onClose={() => setIsCvModalOpen(false)}
