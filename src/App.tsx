@@ -1,11 +1,8 @@
 import React, { useState } from 'react';
 import { LanguageProvider } from './context/LanguageContext';
-import { CosmicGridCanvas } from './components/CosmicGridCanvas';
 import { Navbar } from './components/Navbar';
-import { SmokedGlassHero } from './components/SmokedGlassHero';
-import { GlassDefinitionsView } from './components/GlassDefinitionsView';
+import { Hero } from './components/Hero';
 import { Projects } from './components/Projects';
-import { TechStack } from './components/TechStack';
 import { ExperienceTimeline } from './components/ExperienceTimeline';
 import { Education } from './components/Education';
 import { Contact } from './components/Contact';
@@ -14,46 +11,34 @@ import { CvModal } from './components/CvModal';
 
 export const AppContent: React.FC = () => {
   const [isCvModalOpen, setIsCvModalOpen] = useState(false);
-  const [isShattered, setIsShattered] = useState(false);
-
-  const scrollToProjects = () => {
-    const el = document.getElementById('projects');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
 
   return (
-    <div className="relative min-h-screen bg-[#050507] text-stone-200 selection:bg-amber-600/30 selection:text-amber-200">
-      {/* Background Reticle and Atmospheric Texture */}
-      <CosmicGridCanvas />
-
-      {/* Floating Precision Navigation */}
+    <div className="min-h-screen bg-obsidian text-paper selection:bg-white selection:text-black">
+      {/* 66px Fixed Monopo Saigon Navigation */}
       <Navbar onOpenCv={() => setIsCvModalOpen(true)} />
 
-      {/* 1. Main WebGL Smoked Glass Hero */}
-      <SmokedGlassHero
-        onOpenCv={() => setIsCvModalOpen(true)}
-        onExploreProjects={scrollToProjects}
-        onShatterChange={(shattered) => setIsShattered(shattered)}
-      />
+      {/* Main Editorial Flow */}
+      <main>
+        {/* Fullscreen Dark Hero with Chromatic Iridescent Liquid Exception */}
+        <Hero onOpenCv={() => setIsCvModalOpen(true)} />
 
-      {/* 2. Shattered Dossier View: "Real-time engineering, in five terms" */}
-      {isShattered && (
-        <GlassDefinitionsView onBack={() => setIsShattered(false)} />
-      )}
-
-      {/* 3. Deep Dive Engineering Catalog & Sections */}
-      <main className="relative z-10">
+        {/* 01: Key Projects Editorial Archive */}
         <Projects />
-        <TechStack />
+
+        {/* 02: Experience & Teaching Trajectory Ledger */}
         <ExperienceTimeline />
+
+        {/* 03: Academic Background & Competencies */}
         <Education />
+
+        {/* 04: Direct Inquiry & Transmission Pipeline */}
         <Contact onOpenCv={() => setIsCvModalOpen(true)} />
       </main>
 
-      {/* Footer */}
+      {/* Inkstone Monopo Saigon Footer */}
       <Footer />
 
-      {/* Official CV Modal with dual PDF downloads */}
+      {/* ATS & Sourcer Dual-Language CV Modal (0px Sharp Shell) */}
       <CvModal
         isOpen={isCvModalOpen}
         onClose={() => setIsCvModalOpen(false)}

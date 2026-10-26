@@ -1,133 +1,117 @@
 import React from 'react';
-import { GraduationCap, BookOpen, Globe2, CheckCircle2 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const Education: React.FC = () => {
-  const { language, t } = useLanguage();
+  const { t } = useLanguage();
+
+  const corePillars = [
+    { code: 'CS-401', name: 'Sistemas Distribuidos & Concurrencia' },
+    { code: 'CS-302', name: 'Bases de Datos Relacionales & SQL' },
+    { code: 'CS-204', name: 'Algoritmos, Complejidad & Estructuras de Datos' },
+    { code: 'CS-305', name: 'Sistemas Operativos & Redes de Datos' },
+    { code: 'CS-408', name: 'Ingeniería de Software & Testing' },
+    { code: 'CS-201', name: 'Arquitectura de Computadoras & Assembler' },
+  ];
 
   return (
-    <section id="education" className="relative py-28 sm:py-36 border-t border-stone-800/60 bg-[#0e0d0c]/70">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 space-y-14">
-        {/* Header */}
-        <div className="space-y-3 max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-bronze-950/60 border border-bronze-700/50 text-amber-300 text-xs font-mono font-medium">
-            <GraduationCap className="w-3.5 h-3.5 text-amber-400" />
-            <span>{t('education.sectionBadge')}</span>
+    <section id="education" className="bg-paper text-obsidian border-b border-black">
+      <div className="max-w-[1078px] mx-auto px-6 sm:px-10 py-24 sm:py-32">
+        {/* Section Header with Whisper Authority */}
+        <div className="pb-16 border-b border-black">
+          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
+            <span className="text-[12px] font-mono tracking-widest text-felt-gray uppercase">
+              {t('education.sectionNumber')} // ACADEMIA
+            </span>
+            <span className="text-[11px] font-mono tracking-widest text-felt-gray uppercase">
+              DEGREE & COMPETENCIES
+            </span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-stone-100 tracking-tight">
-            {t('education.title')}
+
+          <h2 className="mt-6 text-[38px] sm:text-[60px] md:text-[76px] font-light tracking-[-0.03em] leading-[0.98] text-obsidian">
+            {t('education.sectionTitle')}
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-          {/* Main Degree Card */}
-          <div className="lg:col-span-7 rounded-3xl glass-panel p-6 sm:p-8 border border-stone-800/80 hover:border-amber-500/40 transition-all shadow-xl flex flex-col justify-between space-y-6">
-            <div className="space-y-4">
-              <div className="flex items-start justify-between gap-4">
-                <div className="space-y-1.5">
-                  <div className="flex items-center gap-2">
-                    <span className="px-2.5 py-0.5 rounded text-[11px] font-mono bg-amber-500/10 text-amber-300 border border-amber-500/30 font-semibold">
-                      UNLP · 4to AÑO
-                    </span>
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  </div>
-                  <h3 className="text-xl sm:text-3xl font-extrabold text-stone-100 pt-1">
-                    {t('education.degree')}
-                  </h3>
-                  <p className="text-sm font-medium text-amber-300/90 font-mono">
-                    {t('education.institution')} — {t('education.faculty')}
-                  </p>
-                </div>
-                <div className="p-3 rounded-2xl bg-stone-900 border border-stone-800 text-amber-400 shrink-0">
-                  <BookOpen className="w-6 h-6" />
-                </div>
+        {/* Degree & Languages Grid */}
+        <div className="py-16 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          {/* Main Degree Block (7 Cols) */}
+          <div className="lg:col-span-7 space-y-8">
+            <div className="space-y-3">
+              <div className="flex items-center gap-3 text-[11px] font-mono tracking-widest text-felt-gray uppercase">
+                <span className="inline-block w-2 h-2 bg-obsidian sharp-edge" />
+                <span>UNLP // 4TO AÑO EN CURSO</span>
+                <span>·</span>
+                <span>{t('education.period')}</span>
               </div>
 
-              <p className="text-sm text-stone-300 leading-relaxed font-sans">
-                {t('education.description')}
-              </p>
+              <h3 className="text-[30px] sm:text-[42px] font-light tracking-tight text-obsidian leading-tight">
+                {t('education.degree')}
+              </h3>
 
-              {/* Core Academic Foundations */}
-              <div className="space-y-2.5 pt-2">
-                <span className="text-xs font-mono uppercase tracking-wider text-stone-400 block font-semibold">
-                  {language === 'es' ? 'Fundamentos Académicos Nucleares:' : 'Core Computer Science Pillars:'}
-                </span>
-                <div className="grid grid-cols-2 gap-2 text-xs font-mono text-stone-300">
-                  <div className="flex items-center gap-2">
-                    <span className="text-amber-400">◈</span>
-                    <span>Sistemas Distribuidos</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-amber-400">◈</span>
-                    <span>Sistemas Operativos &amp; Concurrencia</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-amber-400">◈</span>
-                    <span>Bases de Datos &amp; Optimización SQL</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-amber-400">◈</span>
-                    <span>Ingeniería de Software &amp; Testing</span>
-                  </div>
-                </div>
+              <div className="text-[14px] font-mono text-inkstone uppercase tracking-wide">
+                {t('education.institution')}
               </div>
             </div>
 
-            <div className="pt-4 border-t border-stone-800/60 flex items-center justify-between text-xs font-mono text-stone-400">
-              <span>{t('education.period')}</span>
-              <span className="text-emerald-400 font-medium">{t('education.status')}</span>
+            <p className="text-[16px] text-inkstone font-light leading-relaxed">
+              {t('education.focus')}
+            </p>
+
+            {/* Core Academic Foundations Pills */}
+            <div className="space-y-3 pt-2">
+              <div className="text-[11px] font-mono uppercase tracking-widest text-felt-gray">
+                ÁREAS DE ESPECIALIZACIÓN ACADÉMICA:
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {corePillars.map((pillar) => (
+                  <span
+                    key={pillar.code}
+                    className="px-3.5 py-1 text-[11px] font-mono text-obsidian border border-black/30 pill-btn hover:border-black transition-colors"
+                  >
+                    <span className="text-felt-gray mr-1.5">{pillar.code}</span>
+                    {pillar.name}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
 
-          {/* Languages & Proficiency Card */}
-          <div className="lg:col-span-5 rounded-3xl glass-panel p-6 sm:p-8 border border-stone-800/80 hover:border-amber-500/40 transition-all shadow-xl flex flex-col justify-between space-y-6">
-            <div className="space-y-4">
-              <div className="flex items-center gap-2.5 pb-3 border-b border-stone-800/70">
-                <div className="p-2 rounded-xl bg-stone-900 border border-stone-800 text-amber-400">
-                  <Globe2 className="w-5 h-5" />
-                </div>
-                <h3 className="text-base font-bold text-stone-100 font-mono">
-                  {t('education.languagesTitle')}
-                </h3>
-              </div>
+          {/* Languages & Certification Box (5 Cols - Strict 0px Sharp-Edge) */}
+          <div className="lg:col-span-5 bg-obsidian text-paper border border-black sharp-edge p-6 sm:p-8 space-y-6">
+            <div className="flex items-center justify-between pb-4 border-b border-white/20 text-[10px] font-mono tracking-widest text-felt-gray uppercase">
+              <span>LINGUISTIC PROFICIENCY</span>
+              <span className="text-paper">CEFR CERTIFIED</span>
+            </div>
 
+            <div className="space-y-5">
               {/* Spanish */}
-              <div className="p-4 rounded-2xl bg-stone-950/70 border border-stone-800/80 space-y-1">
-                <div className="flex items-center justify-between">
-                  <span className="font-semibold text-stone-100 text-sm">
-                    {t('education.languages.es.name')}
-                  </span>
-                  <span className="text-[11px] font-mono text-amber-300 bg-amber-500/10 px-2.5 py-0.5 rounded border border-amber-500/30">
-                    {t('education.languages.es.level')}
-                  </span>
+              <div className="pb-4 border-b border-white/10 space-y-1">
+                <div className="flex items-center justify-between text-[14px] font-light text-paper">
+                  <span>Español / Spanish</span>
+                  <span className="text-[11px] font-mono text-felt-gray uppercase">Nativo</span>
                 </div>
-                <p className="text-xs text-stone-400 font-sans">
-                  {language === 'es' ? 'Lengua materna, comunicación profesional fluida.' : 'Native speaker, native proficiency.'}
-                </p>
+                <div className="text-[12px] font-mono text-felt-gray">
+                  Lengua materna · Comunicación técnica e interpersonal nativa
+                </div>
               </div>
 
               {/* English */}
-              <div className="p-4 rounded-2xl bg-stone-950/70 border border-stone-800/80 space-y-2">
-                <div className="flex items-center justify-between">
-                  <span className="font-semibold text-stone-100 text-sm">
-                    {t('education.languages.en.name')}
-                  </span>
-                  <span className="text-[11px] font-mono text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded border border-emerald-500/30 font-bold">
+              <div className="space-y-1">
+                <div className="flex items-center justify-between text-[14px] font-light text-paper">
+                  <span>English / Inglés</span>
+                  <span className="px-2.5 py-0.5 text-[10px] font-mono bg-white text-obsidian font-semibold pill-btn">
                     C1 ADVANCED
                   </span>
                 </div>
-                <p className="text-xs text-stone-300 leading-relaxed font-sans">
-                  {t('education.languages.en.level')}
-                </p>
-                <div className="flex items-center gap-1.5 text-[11px] font-mono text-emerald-400 pt-1">
-                  <CheckCircle2 className="w-3.5 h-3.5" />
-                  <span>Full Professional Working Proficiency</span>
+                <div className="text-[12px] font-mono text-felt-gray leading-relaxed">
+                  Plena competencia profesional, fluidez en documentación científica, redacción de RFCs y debates de arquitectura internacional.
                 </div>
               </div>
             </div>
 
-            <div className="p-3.5 rounded-2xl bg-bronze-950/40 border border-bronze-700/40 text-[11px] font-mono text-amber-300/90 leading-relaxed">
-              💡 {language === 'es' ? 'Fluidez técnica para redacción de especificaciones de arquitectura y coordinación de equipos de software multiculturales.' : 'Fluent technical communication for drafting RFC specs and coordinating across distributed engineering teams.'}
+            <div className="pt-4 border-t border-white/10 text-[10px] font-mono text-felt-gray uppercase flex justify-between">
+              <span>GLOBAL WORKPLACE READY</span>
+              <span>REMOTE / ASYNC FLUENCY</span>
             </div>
           </div>
         </div>

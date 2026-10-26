@@ -1,226 +1,116 @@
 {
   "nav": {
-    "projects": "Projects",
-    "stack": "Tech Stack",
-    "experience": "Experience",
-    "education": "Education",
-    "contact": "Contact",
-    "cv": "View CV",
-    "downloadCv": "Download CV",
-    "switchLang": "Switch language"
+    "projects": "PROJECTS",
+    "experience": "EXPERIENCE",
+    "education": "EDUCATION",
+    "cv": "RESUME",
+    "contact": "CONTACT",
+    "switchLang": "EN / ES"
   },
   "hero": {
-    "status": "Open for Engineering Roles & Ambitious Systems",
-    "tagline": "Software Engineering Console & Deep Space Exploration",
-    "greeting": "Hi, I'm",
-    "name": "Juan Pedro Suñer",
-    "role": "Backend / Fullstack Developer",
-    "subrole": "Advanced Information Systems Engineering Student (UNLP)",
-    "description": "Specialized in scalable architectures, distributed systems, backend optimization, and deep-space multi-spectral astronomical data processing. Combining computer science fundamentals with modern AI-accelerated workflows.",
-    "ctaProjects": "Explore Projects",
-    "ctaCv": "Download CV",
-    "ctaContact": "Get in Touch",
-    "location": "La Plata, Buenos Aires, Argentina",
-    "telemetry": {
-      "title": "SYSTEM TELEMETRY // OBSERVATORY NODE",
-      "specialization": "Backend & Distributed Systems",
-      "academic": "UNLP Computer Science (4th year)",
-      "english": "English C1 Advanced",
-      "missions": "JWST · Hubble · Chandra · Gaia"
-    }
+    "eyebrow": "SOFTWARE ENGINEER // LA PLATA, AR",
+    "headline": "JUAN PEDRO SUÑER",
+    "subheadline": "Fullstack & Backend Engineer — Advanced Information Systems student at the National University of La Plata (UNLP). Specialized in distributed architectures, scientific data visualization, and high-concurrency systems.",
+    "ctaProjects": "Explore Project Archive",
+    "ctaCv": "Download Resume (PDF)",
+    "rotatingBadge": "SCROLL DOWN · EXPLORE ARCHIVE · "
   },
   "projects": {
-    "sectionBadge": "Engineering Catalog",
-    "title": "Featured Projects",
-    "subtitle": "Systems engineered with an emphasis on architectural resilience, multi-spectral observability, and concurrency control.",
-    "viewCode": "View Repository",
-    "viewDemo": "Live Demo",
-    "placeholderLabel": "Visual Mockup Shell Ready",
-    "placeholderHint": "Crafted interface container ready for official screenshots",
-    "flagshipBadge": "FLAGSHIP PLATFORM // LIVE DEPLOYMENT",
-    "spectralConsole": "Interactive Spectral Laboratory",
-    "spectralHint": "Adjust spectral channels in real time simulating space telescope multi-wavelength blending",
+    "sectionNumber": "01",
+    "sectionTitle": "Key Projects",
+    "sectionSubtitle": "Selected systems emphasizing architectural rigor, scientific telemetry streaming, and transactional concurrency control.",
+    "viewDemo": "Live Demo ↗",
+    "viewCode": "GitHub Repository",
+    "flagshipNotice": "FLAGSHIP PLATFORM // ACTIVE DEPLOYMENT",
     "items": {
       "aetherscope": {
         "title": "AetherScope",
-        "subtitle": "Deep Space Exploration & Spectral Analysis Platform",
-        "categoryLabel": "Deep Space & WebGL2",
-        "description": "Interactive deep-space exploration platform and spectroscopic laboratory. Features a 360° WebGL2 sky viewer powered by Aladin Lite (Rust/WASM) to navigate massive astronomical catalogs and blend multi-wavelength survey data in real time with Supabase persistence.",
-        "highlights": [
-          "360° WebGL2 sky viewer with real-time multi-spectral blending (JWST Infrared, Hubble/DSS2 Optical, Chandra X-Ray).",
-          "Zero-latency streaming of hierarchical progressive HiPS tile pipelines (CDS / ESA / NASA).",
-          "Spectroscopic laboratory module to infer physical phenomena, chemical composition, with user cataloging and JSON data exports."
-        ],
-        "badges": ["Next.js", "TypeScript", "Rust / WASM", "WebGL2", "Supabase", "HiPS / NASA APIs"],
-        "metrics": [
-          { "label": "Space Surveys", "value": "JWST · Hubble · Chandra · Gaia" },
-          { "label": "360° Engine", "value": "Rust / WASM + WebGL2" },
-          { "label": "Persistence", "value": "Supabase PostgreSQL" }
-        ]
+        "category": "Deep Space & WebGL2",
+        "year": "2024 — Present",
+        "description": "Interactive deep-space exploration platform and spectroscopic laboratory powered by authentic scientific survey data from space missions (JWST, Hubble, Chandra, Gaia, AllWISE, DSS2). Features 360° visualization in WebGL2 / Aladin Lite (Rust/WASM), real-time multi-wavelength channel blending (infrared, optical, X-ray), physical-chemical analysis, and JSON catalog export with Supabase.",
+        "stack": ["Next.js", "TypeScript", "WebGL2", "Rust / WASM", "Supabase", "HiPS / NASA APIs"],
+        "liveUrl": "https://aetherscope.vercel.app",
+        "repoUrl": "https://github.com/N3GRON/AetherScope"
       },
       "rescuesync": {
         "title": "RescueSync / DSSD",
-        "subtitle": "Distributed Emergency Coordination & Real-Time Resource Allocation Platform",
-        "categoryLabel": "Distributed Systems",
-        "description": "Distributed platform designed to coordinate disaster response, managing regional risk tiers, critical brigade resource stocks, and credential validation for NGOs via business process orchestration.",
-        "highlights": [
-          "Decoupled microservice architecture with Java Spring Boot and ACID transactional persistence on PostgreSQL.",
-          "Contingency orchestration powered by Bonita BPM REST API for credential review and disaster mitigation pipelines.",
-          "Pessimistic concurrency locking for medical supply allocation with multi-tenant JWT Role-Based Access Control."
-        ],
-        "badges": ["Java Spring Boot", "Angular", "PostgreSQL", "Bonita BPM", "Docker", "REST API"],
-        "metrics": [
-          { "label": "Orchestration", "value": "Bonita BPM REST Engine" },
-          { "label": "Concurrency", "value": "Pessimistic Locking" },
-          { "label": "Isolation", "value": "Docker Multi-stage" }
-        ]
+        "category": "Distributed Systems",
+        "year": "2024",
+        "description": "Distributed platform designed for emergency response coordination and concurrent real-time resource allocation across NGOs and rescue brigades. Orchestrated via BPM workflow engines, role-based access control (JWT), and containerized microservice architecture.",
+        "stack": ["Java Spring Boot", "Angular", "PostgreSQL", "Bonita BPM REST API", "Docker"],
+        "repoUrl": "https://github.com/N3GRON"
       },
       "alquilando": {
         "title": "Alquilando",
-        "subtitle": "Vehicle Rental Management System & Fleet Availability Engine",
-        "categoryLabel": "Backend & Relational Modeling",
-        "description": "Comprehensive backend system for vehicle fleet reservation and rental management, implementing business logic to prevent temporal overbooking, handle dynamic pricing, and maintain relational referential integrity.",
-        "highlights": [
-          "Optimized relational schema in PostgreSQL with composite indexing delivering sub-millisecond query execution.",
-          "Strict business logic in Django/Python validating non-overlapping date ranges and referential integrity constraints.",
-          "Granular role-based permissions separating fleet operators, administrative staff, and end customers."
-        ],
-        "badges": ["Django", "Python", "PostgreSQL", "SQL", "Docker"],
-        "metrics": [
-          { "label": "Framework", "value": "Django ORM" },
-          { "label": "Persistence", "value": "PostgreSQL Indexed" },
-          { "label": "Integrity", "value": "ACID Referential" }
-        ]
+        "category": "Backend & Relational Modeling",
+        "year": "2023 — 2024",
+        "description": "Backend engine for vehicle fleet management and reservation scheduling, featuring strict temporal concurrency control, user permissions, and relational referential integrity.",
+        "stack": ["Django", "Python", "PostgreSQL", "SQL"],
+        "repoUrl": "https://github.com/N3GRON"
       }
-    }
-  },
-  "stack": {
-    "sectionBadge": "Core Competencies",
-    "title": "Vector Tech Ecosystem",
-    "subtitle": "Engineering tooling selected to construct deterministic, fault-tolerant, and high-performance software systems.",
-    "searchPlaceholder": "Filter technologies (e.g. TypeScript, Docker, PostgreSQL, WebGL2)...",
-    "categories": {
-      "languages": "Programming Languages",
-      "frameworks": "Frameworks & Libraries",
-      "data": "Databases & Data Modeling",
-      "tools": "Tools, Systems & Environments",
-      "ai": "AI-Driven Development & Quality"
     }
   },
   "experience": {
-    "sectionBadge": "Work & Academic Trajectory",
-    "title": "Professional Experience",
-    "subtitle": "University computer science teaching, critical infrastructure support, and software engineering.",
-    "items": {
-      "academic": {
-        "role": "Academic Collaborator",
-        "institution": "Facultad de Informática — UNLP",
-        "department": "Programming Languages Seminar (Python Option)",
-        "period": "2026 – Present",
-        "location": "La Plata, Argentina",
-        "bullets": [
-          "Responsible for assisting university professors in resolving technical queries, grading practical assignments, and providing pedagogical support.",
-          "Instructed a cohort of over 40 university students in programming logic, Python best practices, and version control using Git, achieving a high course pass rate.",
-          "Optimized the grading and feedback process by standardizing evaluation rubrics, reducing response times to students by 30%.",
-          "Evaluated code projects for 4 work teams (20 students in total), providing technical feedback focused on best practices and clean software design."
-        ],
-        "metrics": [
-          { "label": "Students Mentored", "value": "40+ students" },
-          { "label": "Feedback Speedup", "value": "30% faster" }
-        ],
-        "tags": ["Python", "Git", "Clean Architecture", "Code Review", "Academic Mentoring"]
+    "sectionNumber": "02",
+    "sectionTitle": "Experience & Teaching",
+    "sectionSubtitle": "University academic practice, critical IT infrastructure reliability, and software engineering.",
+    "items": [
+      {
+        "role": "Academic Collaborator / Teaching Assistant",
+        "entity": "Facultad de Informática — UNLP",
+        "detail": "Programming Languages Seminar (Python Option)",
+        "period": "2026 — Present",
+        "description": "Instructing a cohort of over 40 university undergraduates in object-oriented programming, unit testing, Git version control workflows, and clean software architecture. Standardized evaluation rubrics cutting feedback response latency by 30%, conducting rigorous technical code audits."
       },
-      "freelance": {
+      {
         "role": "Freelance IT Technician",
-        "institution": "Independent Technical Services",
-        "period": "2022 – Present",
-        "location": "La Plata / Remote",
-        "bullets": [
-          "Responsible for providing technical support to end-users, specializing in hardware repair, component upgrades, and OS configuration.",
-          "Executed diagnostics, repair, and preventive maintenance of hardware and software on desktop PCs and laptops, successfully extending equipment lifespan.",
-          "Managed the complete customer service cycle independently, from equipment intake and budgeting to final delivery and technical advising.",
-          "Developed personal software projects (Fullstack and Backend) in parallel to strengthen technical skills, explore new architectures, and build an active portfolio."
-        ],
-        "metrics": [
-          { "label": "Service Cycle", "value": "End-to-End" },
-          { "label": "Scope", "value": "Hardware & Software" }
-        ],
-        "tags": ["Hardware Diagnostics", "Linux & Windows OS", "Client Lifecycle", "Performance Tuning"]
+        "entity": "Independent Technical Services",
+        "detail": "Hardware, OS & Networking",
+        "period": "2022 — Present",
+        "description": "Component-level hardware diagnostics, high-performance workstation assembly, operating system optimization (Linux / Windows), and end-to-end client consultation lifecycle management."
       },
-      "pharmacy": {
+      {
         "role": "IT Consultant & Systems Support",
-        "institution": "Farmacia Napoli",
-        "period": "2019 – 2022",
-        "location": "La Plata, Argentina",
-        "bullets": [
-          "Responsible for daily technical support, IT infrastructure maintenance, and OS incident resolution for the pharmacy.",
-          "Managed the company's IT equipment, ensuring 99% operational availability for billing and stock management terminals.",
-          "Automated the maintenance and update process of the sales software, reducing operational downtime incidents by 25% during peak business hours.",
-          "Migrated and installed new workstations and point-of-sale peripherals, decreasing the Mean Time To Repair (MTTR) for system failures to under 15 minutes."
-        ],
-        "metrics": [
-          { "label": "Availability", "value": "99% Uptime" },
-          { "label": "MTTR Resolution", "value": "< 15 min" },
-          { "label": "Downtime Reduction", "value": "25% decrease" }
-        ],
-        "tags": ["Infrastructure", "99% Uptime", "Automation", "POS Terminals"]
+        "entity": "Farmacia Napoli",
+        "detail": "Infrastructure & Availability",
+        "period": "2019 — 2022",
+        "description": "Preventive maintenance across point-of-sale and inventory terminal infrastructure, ensuring 99% operational uptime. Automated sales software maintenance reducing downtime incidents by 25% with MTTR < 15 minutes."
       }
-    }
+    ]
   },
   "education": {
-    "sectionBadge": "Academic Background",
-    "title": "University Education",
-    "degree": "Information Systems Engineering / Computer Science",
-    "institution": "Universidad Nacional de La Plata (UNLP)",
-    "faculty": "Facultad de Informática",
-    "period": "2023 – Present (4th year)",
-    "status": "Active Advanced Student",
-    "description": "Rigorous training in computer science fundamentals, data structures and algorithms, relational database internals, operating systems, computer architecture, software engineering paradigms, and distributed system architectures.",
-    "languagesTitle": "Languages & Professional Proficiency",
-    "languages": {
-      "es": { "name": "Spanish", "level": "Native speaker" },
-      "en": { "name": "English", "level": "C1 Advanced (Full professional proficiency, fluent reading of technical documentation, and agile technical communication)" }
-    }
+    "sectionNumber": "03",
+    "sectionTitle": "Academic Background",
+    "degree": "Information Systems / Computer Science Degree",
+    "institution": "Facultad de Informática — Universidad Nacional de La Plata (UNLP)",
+    "period": "2023 — Present (4th year)",
+    "focus": "Computer science fundamentals, algorithms and data structures, relational database theory, operating systems, concurrency, and distributed software engineering.",
+    "languages": "Spanish (Native) · English (C1 Advanced — Full professional working proficiency and fluent technical reading)"
   },
   "contact": {
-    "sectionBadge": "Direct Channel",
-    "title": "Let's start a technical conversation",
-    "subtitle": "Have an engineering role open, a challenge in distributed systems, or want to collaborate on scientific software? Reach out directly.",
-    "copyEmail": "Copy email address",
-    "emailCopied": "Email copied to clipboard!",
-    "form": {
-      "name": "Full Name",
-      "email": "Email Address",
-      "subject": "Subject",
-      "message": "Message",
-      "send": "Send Message",
-      "sending": "Sending...",
-      "success": "Message sent successfully! I'll get back to your email address shortly.",
-      "error": "An error occurred. Please email sunerjuan240@gmail.com"
-    },
-    "directChannels": "Direct Channels",
-    "emailLabel": "Email",
-    "phoneLabel": "Phone / WhatsApp",
-    "locationLabel": "Location",
-    "githubLabel": "GitHub",
-    "resumeDownloadAction": "Open CV Viewer (PDF)"
+    "sectionNumber": "04",
+    "sectionTitle": "Direct Inquiry",
+    "sectionSubtitle": "For engineering roles, architectural discussions, or technical collaboration.",
+    "emailLabel": "DIRECT EMAIL",
+    "emailCopied": "COPIED",
+    "copyAction": "Copy email",
+    "githubLabel": "GITHUB",
+    "locationLabel": "LOCATION",
+    "locationVal": "La Plata, Buenos Aires, Argentina"
   },
   "cvModal": {
-    "title": "Curriculum Vitae — Juan Pedro Suñer",
-    "subtitle": "Select language to preview or download the official PDF document accordingly.",
-    "spanishVersion": "Versión en Español (CV_Espanol.pdf)",
-    "englishVersion": "English Version (CV_English.pdf)",
-    "downloadPdf": "Download Official PDF",
-    "printView": "Print / Save as PDF",
-    "close": "Close",
-    "roleTag": "Backend / Fullstack Developer",
-    "academicTag": "UNLP Computer Science · 4th year"
+    "title": "CURRICULUM VITAE",
+    "subtitle": "Select document version to preview or download.",
+    "esVersion": "Spanish Version (PDF)",
+    "enVersion": "English Version (PDF)",
+    "download": "Download Document",
+    "open": "Open in new tab",
+    "close": "Close"
   },
   "footer": {
-    "brandText": "Juan Pedro Suñer",
-    "role": "Backend / Fullstack Developer · UNLP",
-    "tagline": "Software engineering console crafted with warm dark aesthetics and precision performance.",
-    "backToTop": "Top",
-    "allRightsReserved": "All rights reserved."
+    "mark": "JUAN PEDRO SUÑER",
+    "year": "© 2026",
+    "tagline": "Editorial layout crafted under the monopo saigon design system.",
+    "backToTop": "BACK TO TOP ↑"
   }
 }

@@ -1,151 +1,101 @@
 import React from 'react';
-import { Briefcase, GraduationCap, Wrench, Shield, Calendar, MapPin } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
 export const ExperienceTimeline: React.FC = () => {
-  const { language, t } = useLanguage();
+  const { t } = useLanguage();
 
-  const experiences = [
+  const items = [
     {
-      id: 'academic',
-      role: t('experience.items.academic.role'),
-      institution: t('experience.items.academic.institution'),
-      department: t('experience.items.academic.department'),
-      period: t('experience.items.academic.period'),
-      location: t('experience.items.academic.location'),
-      bullets: t('experience.items.academic.bullets') as string[],
-      metrics: t('experience.items.academic.metrics') as { label: string; value: string }[],
-      tags: t('experience.items.academic.tags') as string[],
-      icon: <GraduationCap className="w-4 h-4 text-amber-400" />,
-      isCurrent: true,
+      role: t('experience.items.0.role'),
+      entity: t('experience.items.0.entity'),
+      detail: t('experience.items.0.detail'),
+      period: t('experience.items.0.period'),
+      description: t('experience.items.0.description'),
+      tags: ['Python', 'OOP', 'Git Workflows', 'Clean Architecture', 'Pedagogy'],
     },
     {
-      id: 'freelance',
-      role: t('experience.items.freelance.role'),
-      institution: t('experience.items.freelance.institution'),
-      period: t('experience.items.freelance.period'),
-      location: t('experience.items.freelance.location'),
-      bullets: t('experience.items.freelance.bullets') as string[],
-      metrics: t('experience.items.freelance.metrics') as { label: string; value: string }[],
-      tags: t('experience.items.freelance.tags') as string[],
-      icon: <Wrench className="w-4 h-4 text-amber-400" />,
-      isCurrent: true,
+      role: t('experience.items.1.role'),
+      entity: t('experience.items.1.entity'),
+      detail: t('experience.items.1.detail'),
+      period: t('experience.items.1.period'),
+      description: t('experience.items.1.description'),
+      tags: ['Workstation Assembly', 'Linux / Windows OS', 'Hardware Diagnostics', 'Networking'],
     },
     {
-      id: 'pharmacy',
-      role: t('experience.items.pharmacy.role'),
-      institution: t('experience.items.pharmacy.institution'),
-      period: t('experience.items.pharmacy.period'),
-      location: t('experience.items.pharmacy.location'),
-      bullets: t('experience.items.pharmacy.bullets') as string[],
-      metrics: t('experience.items.pharmacy.metrics') as { label: string; value: string }[],
-      tags: t('experience.items.pharmacy.tags') as string[],
-      icon: <Shield className="w-4 h-4 text-amber-400" />,
-      isCurrent: false,
+      role: t('experience.items.2.role'),
+      entity: t('experience.items.2.entity'),
+      detail: t('experience.items.2.detail'),
+      period: t('experience.items.2.period'),
+      description: t('experience.items.2.description'),
+      tags: ['POS Infrastructure', 'Stock Systems', '99% Uptime', 'Incident Automation', 'MTTR < 15m'],
     },
   ];
 
   return (
-    <section id="experience" className="relative py-28 sm:py-36 border-t border-stone-800/60">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 space-y-14">
-        {/* Header */}
-        <div className="space-y-3 max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-bronze-950/60 border border-bronze-700/50 text-amber-300 text-xs font-mono font-medium">
-            <Briefcase className="w-3.5 h-3.5 text-amber-400" />
-            <span>{t('experience.sectionBadge')}</span>
+    <section id="experience" className="bg-obsidian text-paper border-b border-white/20">
+      <div className="max-w-[1078px] mx-auto px-6 sm:px-10 py-24 sm:py-32">
+        {/* Section Header with Whisper Authority */}
+        <div className="pb-16 border-b border-white/20">
+          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
+            <span className="text-[12px] font-mono tracking-widest text-felt-gray uppercase">
+              {t('experience.sectionNumber')} // TRAJECTORY & TEACHING
+            </span>
+            <span className="text-[11px] font-mono tracking-widest text-felt-gray uppercase">
+              ACADEMIC & INDUSTRY PRACTICE
+            </span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-stone-100 tracking-tight">
-            {t('experience.title')}
+
+          <h2 className="mt-6 text-[38px] sm:text-[60px] md:text-[76px] font-light tracking-[-0.03em] leading-[0.98] text-paper">
+            {t('experience.sectionTitle')}
           </h2>
-          <p className="text-sm sm:text-base text-stone-400 leading-relaxed font-sans">
-            {t('experience.subtitle')}
+
+          <p className="mt-6 max-w-[680px] text-[16px] sm:text-[18px] text-paper/70 font-light leading-relaxed">
+            {t('experience.sectionSubtitle')}
           </p>
         </div>
 
-        {/* Vertical Timeline with warm bronze track */}
-        <div className="relative pl-6 sm:pl-10 space-y-12 before:absolute before:left-2.5 sm:before:left-4 before:top-3 before:bottom-3 before:w-[2px] before:bg-gradient-to-b before:from-amber-500 before:via-bronze-700 before:to-stone-800">
-          {experiences.map((exp) => (
-            <div key={exp.id} className="relative group">
-              {/* Timeline Node */}
-              <div className="absolute -left-[30px] sm:-left-[42px] top-1.5 w-6 h-6 rounded-full bg-[#0b0b0c] border-2 border-amber-500 flex items-center justify-center shadow-bronze-sm group-hover:scale-125 transition-transform">
-                <span className="w-2 h-2 rounded-full bg-amber-400" />
+        {/* Editorial Trajectory Ledger */}
+        <div className="divide-y divide-white/20">
+          {items.map((item, idx) => (
+            <article key={idx} className="py-12 sm:py-16 grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+              {/* Left Column: Period & Index (4 cols) */}
+              <div className="md:col-span-4 space-y-2">
+                <div className="text-[11px] font-mono text-felt-gray uppercase tracking-widest">
+                  0{idx + 1} // {item.period}
+                </div>
+                <div className="text-[13px] font-mono text-paper/90 uppercase tracking-wider">
+                  {item.detail}
+                </div>
               </div>
 
-              {/* Card Container */}
-              <div className="rounded-3xl glass-panel p-6 sm:p-8 border border-stone-800/80 hover:border-amber-500/40 transition-all duration-300 shadow-xl space-y-5">
-                {/* Header info */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-stone-800/70 pb-4">
-                  <div>
-                    <div className="flex items-center gap-2.5 flex-wrap">
-                      <h3 className="text-xl sm:text-2xl font-bold text-stone-100 tracking-tight">
-                        {exp.role}
-                      </h3>
-                      {exp.isCurrent && (
-                        <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded text-[10px] font-mono bg-amber-500/10 text-amber-300 border border-amber-500/30">
-                          <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
-                          {language === 'es' ? 'ACTUAL' : 'CURRENT'}
-                        </span>
-                      )}
-                    </div>
-                    <div className="text-sm font-medium text-amber-300/90 mt-1 font-mono">
-                      {exp.institution} {exp.department && `— ${exp.department}`}
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col sm:items-end gap-1 text-xs font-mono text-stone-400">
-                    <div className="flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-amber-400" />
-                      <span>{exp.period}</span>
-                    </div>
-                    <div className="flex items-center gap-1.5 text-stone-500">
-                      <MapPin className="w-3.5 h-3.5" />
-                      <span>{exp.location}</span>
-                    </div>
+              {/* Right Column: Role, Entity, Description & Pill Tags (8 cols) */}
+              <div className="md:col-span-8 space-y-4">
+                <div>
+                  <h3 className="text-[24px] sm:text-[32px] font-light tracking-tight text-paper">
+                    {item.role}
+                  </h3>
+                  <div className="mt-1 text-[13px] font-mono text-felt-gray uppercase tracking-widest">
+                    {item.entity}
                   </div>
                 </div>
 
-                {/* Bullets */}
-                <ul className="space-y-2.5 text-xs sm:text-sm text-stone-300 leading-relaxed font-sans">
-                  {exp.bullets.map((bullet, i) => (
-                    <li key={i} className="flex items-start gap-2.5">
-                      <span className="text-amber-400 font-bold mt-1 text-xs">◈</span>
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
+                <p className="text-[15px] sm:text-[16px] text-paper/80 font-light leading-relaxed">
+                  {item.description}
+                </p>
 
-                {/* Metrics Grid */}
-                {exp.metrics && (
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
-                    {exp.metrics.map((m, idx) => (
-                      <div
-                        key={idx}
-                        className="p-3 rounded-xl bg-stone-950/70 border border-stone-800/80 font-mono"
-                      >
-                        <span className="text-[10px] text-stone-500 uppercase tracking-wider block">
-                          {m.label}
-                        </span>
-                        <span className="text-xs sm:text-sm font-bold text-amber-300/90 mt-0.5 block">
-                          {m.value}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                )}
-
-                {/* Tags */}
-                <div className="flex flex-wrap gap-1.5 pt-2 border-t border-stone-800/60">
-                  {exp.tags.map((tag) => (
+                {/* Tags - Strict 75px binary pill */}
+                <div className="pt-2 flex flex-wrap gap-2">
+                  {item.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-1 rounded-md text-[11px] font-mono bg-stone-900/80 text-stone-400 border border-stone-800/90"
+                      className="px-3.5 py-0.5 text-[10px] font-mono uppercase tracking-wider text-felt-gray border border-white/20 pill-btn hover:text-paper hover:border-white/50 transition-colors"
                     >
-                      #{tag}
+                      {tag}
                     </span>
                   ))}
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>
