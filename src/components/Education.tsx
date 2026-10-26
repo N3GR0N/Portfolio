@@ -14,10 +14,10 @@ export const Education: React.FC = () => {
   ];
 
   return (
-    <section id="education" className="bg-paper text-obsidian border-b border-black">
+    <section id="education" className="bg-obsidian text-paper border-b border-white/20">
       <div className="max-w-[1078px] mx-auto px-6 sm:px-10 py-24 sm:py-32">
         {/* Section Header with Whisper Authority */}
-        <div className="pb-16 border-b border-black">
+        <div className="pb-16 border-b border-white/20">
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
             <span className="text-[12px] font-mono tracking-widest text-felt-gray uppercase">
               {t('education.sectionNumber')} // ACADEMIA
@@ -27,7 +27,7 @@ export const Education: React.FC = () => {
             </span>
           </div>
 
-          <h2 className="mt-6 text-[38px] sm:text-[60px] md:text-[76px] font-light tracking-[-0.03em] leading-[0.98] text-obsidian">
+          <h2 className="mt-6 text-[38px] sm:text-[60px] md:text-[76px] font-light tracking-[-0.03em] leading-[0.98] text-paper">
             {t('education.sectionTitle')}
           </h2>
         </div>
@@ -38,22 +38,22 @@ export const Education: React.FC = () => {
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-3">
               <div className="flex items-center gap-3 text-[11px] font-mono tracking-widest text-felt-gray uppercase">
-                <span className="inline-block w-2 h-2 bg-obsidian sharp-edge" />
+                <span className="inline-block w-2 h-2 bg-paper sharp-edge" />
                 <span>UNLP // 4TO AÑO EN CURSO</span>
                 <span>·</span>
                 <span>{t('education.period')}</span>
               </div>
 
-              <h3 className="text-[30px] sm:text-[42px] font-light tracking-tight text-obsidian leading-tight">
+              <h3 className="text-[30px] sm:text-[42px] font-light tracking-tight text-paper leading-tight">
                 {t('education.degree')}
               </h3>
 
-              <div className="text-[14px] font-mono text-inkstone uppercase tracking-wide">
+              <div className="text-[14px] font-mono text-paper/80 uppercase tracking-wide">
                 {t('education.institution')}
               </div>
             </div>
 
-            <p className="text-[16px] text-inkstone font-light leading-relaxed">
+            <p className="text-[16px] text-paper/70 font-light leading-relaxed">
               {t('education.focus')}
             </p>
 
@@ -66,7 +66,7 @@ export const Education: React.FC = () => {
                 {corePillars.map((pillar) => (
                   <span
                     key={pillar.code}
-                    className="px-3.5 py-1 text-[11px] font-mono text-obsidian border border-black/30 pill-btn hover:border-black transition-colors"
+                    className="px-3.5 py-1 text-[11px] font-mono text-paper/90 border border-white/20 pill-btn bg-white/5 hover:border-white/50 transition-colors"
                   >
                     <span className="text-felt-gray mr-1.5">{pillar.code}</span>
                     {pillar.name}
@@ -77,7 +77,7 @@ export const Education: React.FC = () => {
           </div>
 
           {/* Languages & Certification Box (5 Cols - Strict 0px Sharp-Edge) */}
-          <div className="lg:col-span-5 bg-obsidian text-paper border border-black sharp-edge p-6 sm:p-8 space-y-6">
+          <div className="lg:col-span-5 bg-neutral-950 text-paper border border-white/20 sharp-edge p-6 sm:p-8 space-y-6">
             <div className="flex items-center justify-between pb-4 border-b border-white/20 text-[10px] font-mono tracking-widest text-felt-gray uppercase">
               <span>LINGUISTIC PROFICIENCY</span>
               <span className="text-paper">CEFR CERTIFIED</span>

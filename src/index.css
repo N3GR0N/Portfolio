@@ -19,13 +19,13 @@
 
   html {
     scroll-behavior: smooth;
-    background-color: var(--color-paper);
-    color: var(--color-obsidian);
+    background-color: var(--color-obsidian);
+    color: var(--color-paper);
   }
 
   body {
-    background-color: var(--color-paper);
-    color: var(--color-obsidian);
+    background-color: var(--color-obsidian);
+    color: var(--color-paper);
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;

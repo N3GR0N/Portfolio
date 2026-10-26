@@ -83,11 +83,11 @@ export const Projects: React.FC = () => {
   };
 
   return (
-    <section id="projects" className="bg-paper text-obsidian border-b border-black">
+    <section id="projects" className="bg-obsidian text-paper border-b border-white/20">
       {/* Editorial Container Max 1078px */}
       <div className="max-w-[1078px] mx-auto px-6 sm:px-10 py-24 sm:py-32">
         {/* Section Header with Whisper Authority */}
-        <div className="pb-16 border-b border-black">
+        <div className="pb-16 border-b border-white/20">
           <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4">
             <span className="text-[12px] font-mono tracking-widest text-felt-gray uppercase">
               {t('projects.sectionNumber')} // ARCHIVE
@@ -97,11 +97,11 @@ export const Projects: React.FC = () => {
             </span>
           </div>
 
-          <h2 className="mt-6 text-[38px] sm:text-[60px] md:text-[76px] font-light tracking-[-0.03em] leading-[0.98] text-obsidian">
+          <h2 className="mt-6 text-[38px] sm:text-[60px] md:text-[76px] font-light tracking-[-0.03em] leading-[0.98] text-paper">
             {t('projects.sectionTitle')}
           </h2>
 
-          <p className="mt-6 max-w-[680px] text-[16px] sm:text-[18px] text-inkstone font-light leading-relaxed">
+          <p className="mt-6 max-w-[680px] text-[16px] sm:text-[18px] text-paper/70 font-light leading-relaxed">
             {t('projects.sectionSubtitle')}
           </p>
         </div>
@@ -109,31 +109,31 @@ export const Projects: React.FC = () => {
         {/* ========================================================
             PROJECT 01: AETHERSCOPE (FLAGSHIP - WITH LIVE DEMO & REPO)
             ======================================================== */}
-        <article className="py-20 border-b border-black">
+        <article className="py-20 border-b border-white/20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             {/* Left Specs & Content (7 Cols) */}
             <div className="lg:col-span-7 flex flex-col justify-between">
               <div>
                 {/* Meta Tagline */}
                 <div className="flex items-center gap-3 text-[11px] font-mono tracking-widest text-felt-gray uppercase">
-                  <span className="inline-block w-2 h-2 bg-obsidian sharp-edge" />
+                  <span className="inline-block w-2 h-2 bg-paper sharp-edge" />
                   <span>01.1 // {t('projects.items.aetherscope.category')}</span>
                   <span>·</span>
                   <span>{t('projects.items.aetherscope.year')}</span>
                 </div>
 
                 {/* Flagship Notice */}
-                <div className="mt-3 text-[10px] font-mono tracking-widest text-obsidian bg-neutral-100 border border-black/20 px-2.5 py-1 inline-block uppercase">
+                <div className="mt-3 text-[10px] font-mono tracking-widest text-paper bg-white/10 border border-white/20 px-2.5 py-1 inline-block uppercase">
                   {t('projects.flagshipNotice')}
                 </div>
 
                 {/* Project Title */}
-                <h3 className="mt-4 text-[34px] sm:text-[46px] font-light tracking-tight text-obsidian">
+                <h3 className="mt-4 text-[34px] sm:text-[46px] font-light tracking-tight text-paper">
                   {t('projects.items.aetherscope.title')}
                 </h3>
 
                 {/* Description */}
-                <p className="mt-6 text-[15px] sm:text-[16px] text-inkstone leading-relaxed font-light">
+                <p className="mt-6 text-[15px] sm:text-[16px] text-paper/80 leading-relaxed font-light">
                   {t('projects.items.aetherscope.description')}
                 </p>
 
@@ -150,7 +150,7 @@ export const Projects: React.FC = () => {
                   ].map((tech) => (
                     <span
                       key={tech}
-                      className="px-3.5 py-1 text-[11px] font-mono text-obsidian border border-black/30 pill-btn bg-white hover:border-black transition-colors"
+                      className="px-3.5 py-1 text-[11px] font-mono text-paper/90 border border-white/20 pill-btn bg-white/5 hover:border-white/50 transition-colors"
                     >
                       {tech}
                     </span>
@@ -165,7 +165,7 @@ export const Projects: React.FC = () => {
                   href="https://aetherscope.vercel.app"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 text-[11px] font-mono uppercase tracking-widest bg-obsidian text-paper border border-obsidian pill-btn hover:bg-paper hover:text-obsidian transition-all duration-500"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 text-[11px] font-mono uppercase tracking-widest bg-paper text-obsidian border border-paper pill-btn hover:bg-transparent hover:text-paper transition-all duration-500 font-semibold"
                 >
                   <span>{t('projects.viewDemo')}</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -176,7 +176,7 @@ export const Projects: React.FC = () => {
                   href="https://github.com/N3GRON/AetherScope"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 text-[11px] font-mono uppercase tracking-widest text-obsidian border border-black pill-btn hover:bg-obsidian hover:text-paper transition-all duration-500"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 text-[11px] font-mono uppercase tracking-widest text-paper border border-white/30 pill-btn hover:border-paper hover:bg-white/10 transition-all duration-500"
                 >
                   <GithubIcon className="w-3.5 h-3.5" />
                   <span>{t('projects.viewCode')}</span>
@@ -185,7 +185,7 @@ export const Projects: React.FC = () => {
             </div>
 
             {/* Right Interactive Telemetry Mockup Shell (5 Cols - Strict 0px Sharp-Edge) */}
-            <div className="lg:col-span-5 bg-obsidian text-paper border border-black sharp-edge p-5 flex flex-col justify-between">
+            <div className="lg:col-span-5 bg-neutral-950 text-paper border border-white/20 sharp-edge p-5 flex flex-col justify-between">
               {/* Telemetry Header */}
               <div className="flex items-center justify-between pb-3 border-b border-white/20 text-[10px] font-mono tracking-widest text-felt-gray uppercase">
                 <span>SPECTRAL TELEMETRY // WEBGL2</span>
@@ -231,7 +231,7 @@ export const Projects: React.FC = () => {
                       onClick={() => setActiveBand(band)}
                       className={`px-2.5 py-0.5 uppercase tracking-wider pill-btn border text-[9px] ${
                         activeBand === band
-                          ? 'border-white bg-white text-obsidian'
+                          ? 'border-white bg-white text-obsidian font-semibold'
                           : 'border-white/20 text-felt-gray hover:text-paper'
                       }`}
                     >
@@ -247,23 +247,23 @@ export const Projects: React.FC = () => {
         {/* ========================================================
             PROJECT 02: RESCUESYNC / DSSD (STRICTLY GITHUB ONLY - NO LIVE DEMO)
             ======================================================== */}
-        <article className="py-20 border-b border-black">
+        <article className="py-20 border-b border-white/20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
             {/* Left Specs & Content (7 Cols) */}
             <div className="lg:col-span-7 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 text-[11px] font-mono tracking-widest text-felt-gray uppercase">
-                  <span className="inline-block w-2 h-2 bg-obsidian sharp-edge" />
+                  <span className="inline-block w-2 h-2 bg-paper sharp-edge" />
                   <span>01.2 // {t('projects.items.rescuesync.category')}</span>
                   <span>·</span>
                   <span>{t('projects.items.rescuesync.year')}</span>
                 </div>
 
-                <h3 className="mt-4 text-[34px] sm:text-[46px] font-light tracking-tight text-obsidian">
+                <h3 className="mt-4 text-[34px] sm:text-[46px] font-light tracking-tight text-paper">
                   {t('projects.items.rescuesync.title')}
                 </h3>
 
-                <p className="mt-6 text-[15px] sm:text-[16px] text-inkstone leading-relaxed font-light">
+                <p className="mt-6 text-[15px] sm:text-[16px] text-paper/80 leading-relaxed font-light">
                   {t('projects.items.rescuesync.description')}
                 </p>
 
@@ -279,7 +279,7 @@ export const Projects: React.FC = () => {
                   ].map((tech) => (
                     <span
                       key={tech}
-                      className="px-3.5 py-1 text-[11px] font-mono text-obsidian border border-black/30 pill-btn bg-white hover:border-black transition-colors"
+                      className="px-3.5 py-1 text-[11px] font-mono text-paper/90 border border-white/20 pill-btn bg-white/5 hover:border-white/50 transition-colors"
                     >
                       {tech}
                     </span>
@@ -293,7 +293,7 @@ export const Projects: React.FC = () => {
                   href="https://github.com/N3GRON"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 text-[11px] font-mono uppercase tracking-widest text-obsidian border border-black pill-btn hover:bg-obsidian hover:text-paper transition-all duration-500"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 text-[11px] font-mono uppercase tracking-widest text-paper border border-white/30 pill-btn hover:border-paper hover:bg-white/10 transition-all duration-500"
                 >
                   <GithubIcon className="w-3.5 h-3.5" />
                   <span>{t('projects.viewCode')}</span>
@@ -302,7 +302,7 @@ export const Projects: React.FC = () => {
             </div>
 
             {/* Right Architecture Topology Mockup (5 Cols - Strict 0px Sharp-Edge) */}
-            <div className="lg:col-span-5 bg-neutral-900 text-paper border border-black sharp-edge p-5 font-mono text-[11px]">
+            <div className="lg:col-span-5 bg-neutral-950 text-paper border border-white/20 sharp-edge p-5 font-mono text-[11px]">
               <div className="flex items-center justify-between pb-3 border-b border-white/20 text-[10px] tracking-widest text-felt-gray uppercase">
                 <span>DISTRIBUTED ARCHITECTURE TOPOLOGY</span>
                 <span className="text-paper">BPM CLUSTER</span>
@@ -345,17 +345,17 @@ export const Projects: React.FC = () => {
             <div className="lg:col-span-7 flex flex-col justify-between">
               <div>
                 <div className="flex items-center gap-3 text-[11px] font-mono tracking-widest text-felt-gray uppercase">
-                  <span className="inline-block w-2 h-2 bg-obsidian sharp-edge" />
+                  <span className="inline-block w-2 h-2 bg-paper sharp-edge" />
                   <span>01.3 // {t('projects.items.alquilando.category')}</span>
                   <span>·</span>
                   <span>{t('projects.items.alquilando.year')}</span>
                 </div>
 
-                <h3 className="mt-4 text-[34px] sm:text-[46px] font-light tracking-tight text-obsidian">
+                <h3 className="mt-4 text-[34px] sm:text-[46px] font-light tracking-tight text-paper">
                   {t('projects.items.alquilando.title')}
                 </h3>
 
-                <p className="mt-6 text-[15px] sm:text-[16px] text-inkstone leading-relaxed font-light">
+                <p className="mt-6 text-[15px] sm:text-[16px] text-paper/80 leading-relaxed font-light">
                   {t('projects.items.alquilando.description')}
                 </p>
 
@@ -370,7 +370,7 @@ export const Projects: React.FC = () => {
                   ].map((tech) => (
                     <span
                       key={tech}
-                      className="px-3.5 py-1 text-[11px] font-mono text-obsidian border border-black/30 pill-btn bg-white hover:border-black transition-colors"
+                      className="px-3.5 py-1 text-[11px] font-mono text-paper/90 border border-white/20 pill-btn bg-white/5 hover:border-white/50 transition-colors"
                     >
                       {tech}
                     </span>
@@ -384,7 +384,7 @@ export const Projects: React.FC = () => {
                   href="https://github.com/N3GRON"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 text-[11px] font-mono uppercase tracking-widest text-obsidian border border-black pill-btn hover:bg-obsidian hover:text-paper transition-all duration-500"
+                  className="inline-flex items-center gap-2 px-6 py-2.5 text-[11px] font-mono uppercase tracking-widest text-paper border border-white/30 pill-btn hover:border-paper hover:bg-white/10 transition-all duration-500"
                 >
                   <GithubIcon className="w-3.5 h-3.5" />
                   <span>{t('projects.viewCode')}</span>
@@ -393,7 +393,7 @@ export const Projects: React.FC = () => {
             </div>
 
             {/* Right Relational Schema & Query Mockup (5 Cols - Strict 0px Sharp-Edge) */}
-            <div className="lg:col-span-5 bg-neutral-900 text-paper border border-black sharp-edge p-5 font-mono text-[11px]">
+            <div className="lg:col-span-5 bg-neutral-950 text-paper border border-white/20 sharp-edge p-5 font-mono text-[11px]">
               <div className="flex items-center justify-between pb-3 border-b border-white/20 text-[10px] tracking-widest text-felt-gray uppercase">
                 <span>TRANSACTIONAL SCHEMA CONTROL</span>
                 <span className="text-paper">POSTGRES ENGINE</span>
