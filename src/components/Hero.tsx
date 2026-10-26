@@ -10,8 +10,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
   const { t } = useLanguage();
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
-  // WebGL Liquid Iridescence Shader Backdrop
-  // Soft sage green (rgb 160,224,171) -> molten amber (rgb 255,172,46) -> deep oxblood (rgb 165,45,37)
+  // WebGL Liquid Iridescence Shader:
+  // Large, tranquil blurred luminous orbs (Sage Green, Molten Amber, Deep Oxblood)
+  // drifting and softly merging over obsidian black — calm on the eyes, highly sophisticated.
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -23,38 +24,51 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
     });
 
     if (!gl) {
-      // Fallback for environments without WebGL: 2D fluid simulation
+      // 2D Canvas Fallback
       const ctx = canvas.getContext('2d');
       if (!ctx) return;
       let animId: number;
       let time = 0;
       const render2D = () => {
-        time += 0.01;
+        time += 0.008;
         const w = (canvas.width = window.innerWidth);
         const h = (canvas.height = window.innerHeight);
-        const grad = ctx.createRadialGradient(
-          w * (0.5 + Math.sin(time * 0.4) * 0.15),
-          h * (0.5 + Math.cos(time * 0.3) * 0.15),
-          w * 0.1,
-          w * 0.5,
-          h * 0.5,
-          w * 0.6
-        );
-        grad.addColorStop(0, 'rgba(160, 224, 171, 0.45)');
-        grad.addColorStop(0.45, 'rgba(255, 172, 46, 0.38)');
-        grad.addColorStop(0.85, 'rgba(165, 45, 37, 0.3)');
-        grad.addColorStop(1, 'rgba(0, 0, 0, 1)');
         ctx.fillStyle = '#000000';
         ctx.fillRect(0, 0, w, h);
-        ctx.fillStyle = grad;
+
+        const gAmber = ctx.createRadialGradient(
+          w * (0.5 + Math.sin(time * 0.4) * 0.15),
+          h * (0.45 + Math.cos(time * 0.3) * 0.12),
+          10,
+          w * 0.5,
+          h * 0.45,
+          w * 0.4
+        );
+        gAmber.addColorStop(0, 'rgba(255, 172, 46, 0.35)');
+        gAmber.addColorStop(0.6, 'rgba(165, 45, 37, 0.22)');
+        gAmber.addColorStop(1, 'rgba(0, 0, 0, 0)');
+        ctx.fillStyle = gAmber;
         ctx.fillRect(0, 0, w, h);
+
+        const gSage = ctx.createRadialGradient(
+          w * (0.4 + Math.cos(time * 0.35) * 0.18),
+          h * (0.55 + Math.sin(time * 0.28) * 0.15),
+          10,
+          w * 0.4,
+          h * 0.55,
+          w * 0.38
+        );
+        gSage.addColorStop(0, 'rgba(160, 224, 171, 0.30)');
+        gSage.addColorStop(0.7, 'rgba(0, 0, 0, 0)');
+        ctx.fillStyle = gSage;
+        ctx.fillRect(0, 0, w, h);
+
         animId = requestAnimationFrame(render2D);
       };
       render2D();
       return () => cancelAnimationFrame(animId);
     }
 
-    // Vertex shader: Fullscreen quad
     const vsSource = `
       attribute vec2 position;
       void main() {
@@ -62,7 +76,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
       }
     `;
 
-    // Fragment shader: Organic domain-warped liquid iridescence
     const fsSource = `
       precision highp float;
       uniform vec2 u_resolution;
@@ -96,55 +109,59 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
         return 130.0 * dot(m, g);
       }
 
-      float fbm(vec2 p) {
-        float v = 0.0;
-        float a = 0.5;
-        mat2 rot = mat2(cos(0.5), sin(0.5), -sin(0.5), cos(0.5));
-        for (int i = 0; i < 4; ++i) {
-          v += a * snoise(p);
-          p = rot * p * 2.0 + vec2(100.0);
-          a *= 0.5;
-        }
-        return v;
-      }
-
       void main() {
         vec2 st = gl_FragCoord.xy / u_resolution.xy;
         float aspect = u_resolution.x / u_resolution.y;
         vec2 uv = (st - 0.5) * vec2(aspect, 1.0);
 
-        vec2 mouseOffset = (u_mouse - 0.5) * 0.12;
-        vec2 p = uv * 1.6 - mouseOffset;
-        float t = u_time * 0.07;
+        // Very calm, gentle time progression
+        float t = u_time * 0.16;
 
-        // Domain warping for organic liquid motion
-        vec2 q = vec2(fbm(p + vec2(t * 0.5, t * 0.35)), fbm(p + vec2(1.7, 4.3) - t * 0.4));
-        vec2 r = vec2(fbm(p + 2.4 * q + vec2(2.1, 1.7) + t * 0.3), fbm(p + 2.4 * q + vec2(8.3, 2.8) - t * 0.25));
-        float f = fbm(p + 2.8 * r + t * 0.15);
-        f = clamp((f + 0.9) * 0.58, 0.0, 1.0);
+        // Subtle cursor parallax
+        vec2 mouseOffset = (u_mouse - 0.5) * 0.08;
+        vec2 p = uv - mouseOffset;
 
-        // Exact Monopo Saigon Palette Tokens:
-        // Soft Sage Green: rgb(160, 224, 171)
-        // Molten Amber: rgb(255, 172, 46)
-        // Deep Oxblood: rgb(165, 45, 37)
-        // Obsidian background: rgb(0, 0, 0)
+        // Soft, low-frequency organic warp to prevent static circles
+        float warp = snoise(p * 0.75 + vec2(t * 0.12, -t * 0.10)) * 0.09;
+        vec2 wp = p + vec2(warp, -warp);
+
+        // 1. Large Orb: Molten Amber (rgb 255, 172, 46) - Center / Upper drift
+        vec2 posAmber = vec2(sin(t * 0.32) * 0.28, cos(t * 0.26) * 0.18 + 0.02);
+        float distAmber = length(wp - posAmber);
+        float amber = pow(smoothstep(0.98, 0.04, distAmber), 1.75);
+
+        // 2. Large Orb: Soft Sage Green (rgb 160, 224, 171) - Left drift
+        vec2 posSage = vec2(cos(t * 0.22 + 1.2) * 0.36 - 0.08, sin(t * 0.30 + 0.9) * 0.22);
+        float distSage = length(wp - posSage);
+        float sage = pow(smoothstep(0.88, 0.05, distSage), 1.85);
+
+        // 3. Large Orb: Deep Oxblood (rgb 165, 45, 37) - Right / Lower drift
+        vec2 posOxblood = vec2(sin(t * 0.20 + 2.8) * 0.34 + 0.12, cos(t * 0.28 + 2.0) * 0.22 - 0.04);
+        float distOxblood = length(wp - posOxblood);
+        float oxblood = pow(smoothstep(0.92, 0.06, distOxblood), 1.70);
+
+        // 4. Subtle Core Luminous Glow
+        vec2 posCore = vec2(cos(t * 0.36 + 4.2) * 0.16, sin(t * 0.22 + 3.1) * 0.14);
+        float distCore = length(wp - posCore);
+        float core = pow(smoothstep(0.70, 0.02, distCore), 2.1);
+
+        // Exact Monopo Saigon Palette Tokens
         vec3 c_sage = vec3(160.0/255.0, 224.0/255.0, 171.0/255.0);
         vec3 c_amber = vec3(255.0/255.0, 172.0/255.0, 46.0/255.0);
         vec3 c_oxblood = vec3(165.0/255.0, 45.0/255.0, 37.0/255.0);
         vec3 c_obsidian = vec3(0.0, 0.0, 0.0);
 
-        // Fluid gradient transitions
-        vec3 color = mix(c_oxblood, c_amber, smoothstep(0.12, 0.52, f));
-        color = mix(color, c_sage, smoothstep(0.46, 0.82, f + q.x * 0.25));
+        // Soft, quiet luminous blending — calm on the eyes, rich in tone
+        vec3 fluid = vec3(0.0);
+        fluid += c_oxblood * (oxblood * 0.50);
+        fluid += c_amber * (amber * 0.55);
+        fluid += c_sage * (sage * 0.45);
+        fluid += mix(c_amber, c_sage, 0.45) * (core * 0.30);
 
-        // Iridescent sheen highlight
-        float sheen = pow(smoothstep(0.68, 0.96, f), 2.2);
-        color += c_sage * sheen * 0.38;
-
-        // Cinematic soft vignette merging into obsidian edges
-        float dist = length(uv);
-        float vignette = smoothstep(1.35, 0.32, dist);
-        vec3 finalColor = mix(c_obsidian, color * 0.68, vignette * 0.88);
+        // Organic edge vignette dissolving cleanly into obsidian black
+        float edgeDist = length(uv);
+        float vignette = smoothstep(1.30, 0.35, edgeDist);
+        vec3 finalColor = mix(c_obsidian, fluid, vignette * 0.88);
 
         gl_FragColor = vec4(finalColor, 1.0);
       }
@@ -175,7 +192,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
 
     gl.useProgram(program);
 
-    // Fullscreen quad buffer
     const positionBuffer = gl.createBuffer();
     gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
     gl.bufferData(
@@ -219,9 +235,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
     const render = () => {
       const elapsed = (performance.now() - startTime) * 0.001;
 
-      // Smooth mouse interpolation
-      currentMouse.x += (targetMouse.x - currentMouse.x) * 0.05;
-      currentMouse.y += (targetMouse.y - currentMouse.y) * 0.05;
+      currentMouse.x += (targetMouse.x - currentMouse.x) * 0.04;
+      currentMouse.y += (targetMouse.y - currentMouse.y) * 0.04;
 
       gl.uniform1f(timeLoc, elapsed);
       gl.uniform2f(mouseLoc, currentMouse.x, currentMouse.y);
@@ -246,12 +261,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen w-full bg-obsidian text-paper flex flex-col justify-between pt-[74px] pb-8 sm:pb-12 px-6 sm:px-10 overflow-hidden select-none"
+      className="relative h-screen min-h-[600px] max-h-[1080px] w-full bg-obsidian text-paper flex flex-col justify-between pt-[66px] pb-5 sm:pb-8 px-6 sm:px-10 overflow-hidden select-none"
     >
       {/* 
-        Full-Viewport Atmospheric Liquid Iridescence Shader Media
-        Soft sage green (rgb 160,224,171) dissolving through molten amber (rgb 255,172,46) into deep oxblood (rgb 165,45,37).
-        Never a flat gradient — organic, shader-driven fluid motion.
+        Full-Viewport Atmospheric Liquid Iridescence Shader
+        Large, softly-blurred drifting luminous orbs on obsidian black.
       */}
       <canvas
         ref={canvasRef}
@@ -259,19 +273,19 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
         aria-hidden="true"
       />
 
-      {/* Subtle obsidian grain overlay to ground the fluid light into the editorial gallery */}
+      {/* Deep obsidian contrast shield for calm visual comfort */}
       <div
-        className="pointer-events-none absolute inset-0 z-[1] bg-black/25 backdrop-contrast-[1.05]"
+        className="pointer-events-none absolute inset-0 z-[1] bg-black/20"
         aria-hidden="true"
       />
 
-      {/* Hero Content Layer (Max-width 1078px contained, centered) */}
-      <div className="relative z-10 max-w-[1078px] w-full mx-auto flex-1 flex flex-col justify-between">
+      {/* Hero Content Shell: Guaranteed full viewport fit without vertical cutoff */}
+      <div className="relative z-10 max-w-[1078px] w-full mx-auto h-full flex flex-col justify-between">
         {/* Top Annotation Bar (11px Roobert/Inter, quiet Felt Gray) */}
-        <div className="pt-6 sm:pt-10 flex items-center justify-between text-[11px] font-mono tracking-widest text-felt-gray uppercase">
+        <div className="pt-3 sm:pt-5 flex items-center justify-between text-[11px] font-mono tracking-widest text-felt-gray uppercase shrink-0">
           <div className="flex items-center gap-2.5">
             <span className="w-1.5 h-1.5 bg-paper rounded-full animate-pulse" />
-            <span className="text-paper/80 font-normal">JUAN PEDRO SUÑER</span>
+            <span className="text-paper/90 font-normal">JUAN PEDRO SUÑER</span>
             <span className="hidden sm:inline text-felt-gray/70">· SOFTWARE ENGINEER</span>
           </div>
 
@@ -282,30 +296,29 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
 
         {/* 
           Hero Display Headline:
-          Roobert 225px weight 400, line-height 1.25, #ffffff over iridescent dark media.
-          Letter-spacing normal. The headline is the hero — one monumental phrase centered in the viewport breathing against fluid light.
+          Display scale, breathing comfortably against fluid light, perfectly proportioned.
         */}
-        <div className="my-auto py-10 sm:py-16 text-center flex flex-col items-center justify-center">
-          <h1 className="text-[52px] xs:text-[68px] sm:text-[104px] md:text-[144px] lg:text-[188px] xl:text-[225px] font-normal leading-[0.92] text-paper tracking-[-0.03em] uppercase select-none transition-transform duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)]">
-            JUAN PEDRO
+        <div className="my-auto py-2 sm:py-4 text-center flex flex-col items-center justify-center shrink-0">
+          <h1 className="text-[44px] xs:text-[58px] sm:text-[76px] md:text-[98px] lg:text-[124px] xl:text-[142px] font-normal leading-[0.92] text-paper tracking-[-0.03em] uppercase select-none transition-transform duration-1000 ease-[cubic-bezier(0.19,1,0.22,1)]">
+            <span className="whitespace-nowrap">JUAN PEDRO</span>
             <br />
-            SUÑER
+            <span>SUÑER</span>
           </h1>
 
-          <div className="mt-6 sm:mt-8 text-[12px] sm:text-[13px] font-mono tracking-[0.28em] text-paper/70 uppercase">
+          <div className="mt-3 sm:mt-5 text-[11px] sm:text-[12px] font-mono tracking-[0.25em] text-paper/70 uppercase">
             SOFTWARE ENGINEER & LICENCIATURA EN SISTEMAS (UNLP)
           </div>
         </div>
 
         {/* 
-          Bottom Row:
-          - Left: Rotating Scroll Indicator (Circular SVG badge rotating continuously at slow tempo at bottom-left)
-          - Right: Ghost Pill Buttons (Dark Surface: 1px solid rgba(255,255,255,0.3), #ffffff text, 75px radius, 11px vert, 33px horiz)
+          Bottom Row: 100% visible within the viewport, no clipping.
+          - Left: Rotating Scroll Indicator
+          - Right: Ghost Pill Buttons
         */}
-        <div className="pt-6 border-t border-white/15 flex flex-col sm:flex-row items-center sm:items-end justify-between gap-6">
-          {/* Rotating Typography Scroll Badge (0,0 bottom-left with small offset) */}
-          <div className="flex items-center gap-4 self-start sm:self-auto">
-            <div className="relative w-20 h-20 sm:w-24 sm:h-24 flex items-center justify-center">
+        <div className="pt-3 sm:pt-4 pb-1 border-t border-white/15 flex flex-row items-end justify-between gap-4 shrink-0">
+          {/* Rotating Typography Scroll Badge */}
+          <div className="flex items-center gap-3.5">
+            <div className="relative w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center shrink-0">
               <svg
                 className="w-full h-full animate-spin-slow text-felt-gray"
                 viewBox="0 0 100 100"
@@ -323,30 +336,30 @@ export const Hero: React.FC<HeroProps> = ({ onOpenCv }) => {
                   </textPath>
                 </text>
               </svg>
-              <span className="absolute w-2 h-2 bg-paper rounded-full" />
+              <span className="absolute w-1.5 h-1.5 bg-paper rounded-full" />
             </div>
 
-            <div className="hidden md:block text-[11px] font-mono text-felt-gray uppercase leading-relaxed">
+            <div className="hidden md:block text-[10px] font-mono text-felt-gray uppercase leading-relaxed">
               <div>DISTRIBUTED ARCHITECTURES & WEBGL</div>
               <div className="text-paper/60">AUTONOMOUS & TEAM PRACTICE</div>
             </div>
           </div>
 
-          {/* Ghost Pill Buttons (Dark Surface — 75px full pill, 11px vert, 33px horiz) */}
-          <div className="flex items-center gap-3.5 self-end sm:self-auto flex-wrap">
+          {/* Ghost Pill Buttons (Dark Surface — 75px full pill, guaranteed visible) */}
+          <div className="flex items-center gap-2.5 sm:gap-3.5 flex-wrap justify-end">
             <a
               href="#projects"
-              className="inline-flex items-center gap-2.5 px-[33px] py-[11px] text-[15px] sm:text-[16px] font-normal text-paper border border-white/30 pill-btn hover:border-paper hover:bg-white/10 transition-all duration-700"
+              className="inline-flex items-center gap-2 px-5 sm:px-[30px] py-2 sm:py-[10px] text-[13px] sm:text-[15px] font-normal text-paper border border-white/30 pill-btn hover:border-paper hover:bg-white/10 transition-all duration-700"
             >
               <span>{t('hero.ctaProjects')}</span>
-              <ArrowDown className="w-4 h-4 text-paper/80" />
+              <ArrowDown className="w-3.5 h-3.5 text-paper/80" />
             </a>
 
             <button
               onClick={onOpenCv}
-              className="inline-flex items-center gap-2.5 px-[33px] py-[11px] text-[15px] sm:text-[16px] font-normal text-paper/80 border border-white/20 pill-btn hover:border-paper hover:text-paper hover:bg-white/10 transition-all duration-700"
+              className="inline-flex items-center gap-2 px-5 sm:px-[30px] py-2 sm:py-[10px] text-[13px] sm:text-[15px] font-normal text-paper/80 border border-white/20 pill-btn hover:border-paper hover:text-paper hover:bg-white/10 transition-all duration-700"
             >
-              <FileText className="w-4 h-4 text-felt-gray" />
+              <FileText className="w-3.5 h-3.5 text-felt-gray" />
               <span>{t('hero.ctaCv')}</span>
             </button>
           </div>
