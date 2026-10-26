@@ -29,8 +29,8 @@
         "year": "2024 — Present",
         "description": "Interactive deep-space exploration platform and spectroscopic laboratory powered by authentic scientific survey data from space missions (JWST, Hubble, Chandra, Gaia, AllWISE, DSS2). Features 360° visualization in WebGL2 / Aladin Lite (Rust/WASM), real-time multi-wavelength channel blending (infrared, optical, X-ray), physical-chemical analysis, and JSON catalog export with Supabase.",
         "stack": ["Next.js", "TypeScript", "WebGL2", "Rust / WASM", "Supabase", "HiPS / NASA APIs"],
-        "liveUrl": "https://aetherscope.vercel.app",
-        "repoUrl": "https://github.com/N3GRON/AetherScope"
+        "liveUrl": "https://aether-scope-two.vercel.app/",
+        "repoUrl": "https://github.com/N3GR0N/AetherScope/tree/0.1.0"
       },
       "rescuesync": {
         "title": "RescueSync / DSSD",
@@ -38,7 +38,7 @@
         "year": "2024",
         "description": "Distributed platform designed for emergency response coordination and concurrent real-time resource allocation across NGOs and rescue brigades. Orchestrated via BPM workflow engines, role-based access control (JWT), and containerized microservice architecture.",
         "stack": ["Java Spring Boot", "Angular", "PostgreSQL", "Bonita BPM REST API", "Docker"],
-        "repoUrl": "https://github.com/N3GRON"
+        "repoUrl": "https://github.com/N3GR0N"
       },
       "alquilando": {
         "title": "Alquilando",
@@ -46,7 +46,7 @@
         "year": "2023 — 2024",
         "description": "Backend engine for vehicle fleet management and reservation scheduling, featuring strict temporal concurrency control, user permissions, and relational referential integrity.",
         "stack": ["Django", "Python", "PostgreSQL", "SQL"],
-        "repoUrl": "https://github.com/N3GRON"
+        "repoUrl": "https://github.com/N3GR0N"
       }
     }
   },

@@ -1,85 +1,28 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { ExternalLink } from 'lucide-react';
+import { ExternalLink, Maximize2 } from 'lucide-react';
 import { GithubIcon } from './GithubIcon';
 
 export const Projects: React.FC = () => {
   const { t } = useLanguage();
 
-  // AetherScope interactive telemetry state
-  const [activeBand, setActiveBand] = useState<'ir' | 'opt' | 'xray'>('ir');
-  const [activeTarget, setActiveTarget] = useState<'carina' | 'crab' | 'cassiopeia'>('carina');
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  // AetherScope screenshot showcase state
+  const [activeView, setActiveView] = useState<'pillars' | 'navigator'>('pillars');
+  const [isZoomOpen, setIsZoomOpen] = useState(false);
 
-  // Simulated celestial telemetry rendering on canvas
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
-
-    let animId: number;
-    let time = 0;
-
-    const render = () => {
-      time += 0.015;
-      const w = (canvas.width = canvas.parentElement?.clientWidth || 540);
-      const h = (canvas.height = canvas.parentElement?.clientHeight || 280);
-
-      // Deep space monochromatic void
-      ctx.fillStyle = '#000000';
-      ctx.fillRect(0, 0, w, h);
-
-      const cx = w / 2;
-      const cy = h / 2;
-
-      // Draw subtle orbital coordinate reticles
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
-      ctx.lineWidth = 1;
-      ctx.beginPath();
-      ctx.arc(cx, cy, 60, 0, Math.PI * 2);
-      ctx.arc(cx, cy, 110, 0, Math.PI * 2);
-      ctx.stroke();
-
-      // Crosshairs
-      ctx.beginPath();
-      ctx.moveTo(cx - 130, cy);
-      ctx.lineTo(cx + 130, cy);
-      ctx.moveTo(cx, cy - 130);
-      ctx.lineTo(cx, cy + 130);
-      ctx.stroke();
-
-      // Spectral emission simulation
-      const count = activeBand === 'ir' ? 90 : activeBand === 'opt' ? 140 : 60;
-      for (let i = 0; i < count; i++) {
-        const seed = i * 1.618;
-        const radius = ((seed * 37) % 110) + Math.sin(time + seed) * 8;
-        const angle = seed * 3.14 + time * (i % 2 === 0 ? 0.2 : -0.15);
-        const px = cx + Math.cos(angle) * radius;
-        const py = cy + Math.sin(angle) * radius * 0.75;
-
-        const alpha = ((Math.sin(time * 2 + i) + 1) / 2) * 0.6 + 0.2;
-        ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
-        const dotSize = (i % 3 === 0) ? 1.8 : 1.0;
-        ctx.fillRect(px, py, dotSize, dotSize);
-      }
-
-      // Center core star
-      ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
-      ctx.fillRect(cx - 2, cy - 2, 4, 4);
-
-      animId = requestAnimationFrame(render);
-    };
-
-    render();
-
-    return () => cancelAnimationFrame(animId);
-  }, [activeBand, activeTarget]);
-
-  const targetCoords = {
-    carina: { ra: '10h 45m 08.5s', dec: '-59° 52′ 04″', dist: '7,500 ly', type: 'Emission Nebula (JWST NIRCam)' },
-    crab: { ra: '05h 34m 31.9s', dec: '+22° 00′ 52″', dist: '6,500 ly', type: 'Supernova Remnant (Chandra/Hubble)' },
-    cassiopeia: { ra: '23h 23m 27.9s', dec: '+58° 48′ 42″', dist: '11,000 ly', type: 'Core Collapse Remnant (Multi-band)' },
+  const aetherViews = {
+    pillars: {
+      src: '/images/aetherscope-pillars.png',
+      title: 'PILARES DE LA CREACIÓN / M16',
+      subtitle: 'Análisis Físico-Químico, 85% H-Alfa, Régimen Térmico & Slider Espectral',
+      badge: 'JWST + DSS2 + HUBBLE',
+    },
+    navigator: {
+      src: '/images/aetherscope-navigator.jpg',
+      title: 'DEEP SPACE SPECTRAL NAVIGATOR',
+      subtitle: 'Navegación 360° en WebGL2 / Aladin Lite (Rust WASM) & Retícula J2000.0',
+      badge: 'RA: 18h 18m | DEC: -13° 48′',
+    },
   };
 
   return (
@@ -111,8 +54,8 @@ export const Projects: React.FC = () => {
             ======================================================== */}
         <article className="py-20 border-b border-white/20">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-            {/* Left Specs & Content (7 Cols) */}
-            <div className="lg:col-span-7 flex flex-col justify-between">
+            {/* Left Specs & Content (6 Cols) */}
+            <div className="lg:col-span-6 flex flex-col justify-between">
               <div>
                 {/* Meta Tagline */}
                 <div className="flex items-center gap-3 text-[11px] font-mono tracking-widest text-felt-gray uppercase">
@@ -158,14 +101,23 @@ export const Projects: React.FC = () => {
                 </div>
               </div>
 
-              {/* Action Buttons: Strict 75px Binary Capsule */}
+              {/* Action Buttons: Strict 75px Binary Capsule with Guaranteed High Contrast */}
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 {/* Live Demo Button (ONLY FOR AETHERSCOPE) */}
                 <a
-                  href="https://aetherscope.vercel.app"
+                  href="https://aether-scope-two.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 text-[11px] font-mono uppercase tracking-widest bg-paper text-obsidian border border-paper pill-btn hover:bg-transparent hover:text-paper transition-all duration-500 font-semibold"
+                  style={{ backgroundColor: '#ffffff', color: '#000000' }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'transparent';
+                    e.currentTarget.style.color = '#ffffff';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = '#ffffff';
+                    e.currentTarget.style.color = '#000000';
+                  }}
+                  className="inline-flex items-center gap-2 px-6 py-2.5 text-[11px] font-mono uppercase tracking-widest border border-white pill-btn transition-all duration-300 font-semibold"
                 >
                   <span>{t('projects.viewDemo')}</span>
                   <ExternalLink className="w-3.5 h-3.5" />
@@ -173,7 +125,7 @@ export const Projects: React.FC = () => {
 
                 {/* GitHub Button */}
                 <a
-                  href="https://github.com/N3GRON/AetherScope"
+                  href="https://github.com/N3GR0N/AetherScope/tree/0.1.0"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-2.5 text-[11px] font-mono uppercase tracking-widest text-paper border border-white/30 pill-btn hover:border-paper hover:bg-white/10 transition-all duration-500"
@@ -184,61 +136,72 @@ export const Projects: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Interactive Telemetry Mockup Shell (5 Cols - Strict 0px Sharp-Edge) */}
-            <div className="lg:col-span-5 bg-neutral-950 text-paper border border-white/20 sharp-edge p-5 flex flex-col justify-between">
-              {/* Telemetry Header */}
-              <div className="flex items-center justify-between pb-3 border-b border-white/20 text-[10px] font-mono tracking-widest text-felt-gray uppercase">
-                <span>SPECTRAL TELEMETRY // WEBGL2</span>
+            {/* Right Authentic Screenshot Showcase Shell (6 Cols - Strict 0px Sharp-Edge) */}
+            <div className="lg:col-span-6 bg-neutral-950 text-paper border border-white/20 sharp-edge p-5 flex flex-col justify-between">
+              {/* Header & View Switcher */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-3 border-b border-white/20 gap-3 text-[10px] font-mono tracking-widest uppercase">
+                <span className="text-felt-gray">AETHERSCOPE // REAL PLATFORM CAPTURE</span>
                 <span className="text-paper flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 bg-paper rounded-full animate-ping" />
-                  LIVE CANVAS
+                  <span className="w-1.5 h-1.5 bg-paper rounded-full animate-pulse" />
+                  ACTIVE DEPLOY
                 </span>
               </div>
 
-              {/* Target Selector */}
-              <div className="pt-3 pb-2 flex gap-1.5 overflow-x-auto text-[10px] font-mono">
-                {(['carina', 'crab', 'cassiopeia'] as const).map((tgt) => (
-                  <button
-                    key={tgt}
-                    onClick={() => setActiveTarget(tgt)}
-                    className={`px-2.5 py-1 uppercase tracking-wider pill-btn border transition-all ${
-                      activeTarget === tgt
-                        ? 'border-white bg-white text-obsidian font-semibold'
-                        : 'border-white/20 text-felt-gray hover:text-paper hover:border-white/50'
-                    }`}
-                  >
-                    {tgt}
-                  </button>
-                ))}
+              {/* View Switcher Tabs (Strict High Contrast) */}
+              <div className="pt-3 pb-2 flex gap-2 text-[10px] font-mono">
+                <button
+                  onClick={() => setActiveView('pillars')}
+                  className={`px-3 py-1 uppercase tracking-wider pill-btn border transition-all ${
+                    activeView === 'pillars'
+                      ? 'border-white bg-white/20 text-paper font-semibold'
+                      : 'border-white/20 text-felt-gray hover:text-paper hover:border-white/50'
+                  }`}
+                >
+                  {activeView === 'pillars' ? '● ' : ''}01 // Pilares de la Creación (M16)
+                </button>
+
+                <button
+                  onClick={() => setActiveView('navigator')}
+                  className={`px-3 py-1 uppercase tracking-wider pill-btn border transition-all ${
+                    activeView === 'navigator'
+                      ? 'border-white bg-white/20 text-paper font-semibold'
+                      : 'border-white/20 text-felt-gray hover:text-paper hover:border-white/50'
+                  }`}
+                >
+                  {activeView === 'navigator' ? '● ' : ''}02 // Deep Space Navigator
+                </button>
               </div>
 
-              {/* Canvas Visualizer */}
-              <div className="relative w-full h-[220px] bg-black border border-white/10 sharp-edge my-3 overflow-hidden">
-                <canvas ref={canvasRef} className="w-full h-full block" />
-                <div className="absolute bottom-2 left-2 right-2 flex justify-between text-[9px] font-mono text-felt-gray bg-black/70 px-2 py-1 backdrop-blur-sm">
-                  <span>RA: {targetCoords[activeTarget].ra}</span>
-                  <span>DEC: {targetCoords[activeTarget].dec}</span>
+              {/* Main Screenshot Shell with Hover Zoom Trigger */}
+              <div
+                onClick={() => setIsZoomOpen(true)}
+                className="relative w-full aspect-[16/10] bg-black border border-white/15 sharp-edge my-3 overflow-hidden cursor-pointer group"
+                title="Click para ampliar captura en alta resolución"
+              >
+                <img
+                  src={aetherViews[activeView].src}
+                  alt={aetherViews[activeView].title}
+                  className="w-full h-full object-cover object-center group-hover:scale-[1.03] transition-transform duration-700 ease-out"
+                />
+
+                {/* Subtle Hover Action Pill */}
+                <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                  <span className="px-4 py-1.5 pill-btn bg-black/80 text-paper border border-white/40 text-[11px] font-mono uppercase tracking-widest flex items-center gap-2">
+                    <Maximize2 className="w-3 h-3" />
+                    <span>Ampliar captura</span>
+                  </span>
+                </div>
+
+                {/* Bottom Overlay Metadata */}
+                <div className="absolute bottom-2 left-2 right-2 flex justify-between text-[9px] font-mono text-paper/90 bg-black/80 px-2.5 py-1.5 backdrop-blur-sm border border-white/10">
+                  <span className="font-semibold">{aetherViews[activeView].title}</span>
+                  <span className="text-felt-gray">{aetherViews[activeView].badge}</span>
                 </div>
               </div>
 
-              {/* Wavelength Mode Switcher */}
-              <div className="pt-2 border-t border-white/10 flex items-center justify-between text-[10px] font-mono">
-                <span className="text-felt-gray uppercase">BAND:</span>
-                <div className="flex gap-1.5">
-                  {(['ir', 'opt', 'xray'] as const).map((band) => (
-                    <button
-                      key={band}
-                      onClick={() => setActiveBand(band)}
-                      className={`px-2.5 py-0.5 uppercase tracking-wider pill-btn border text-[9px] ${
-                        activeBand === band
-                          ? 'border-white bg-white text-obsidian font-semibold'
-                          : 'border-white/20 text-felt-gray hover:text-paper'
-                      }`}
-                    >
-                      {band === 'ir' ? 'NIRCam' : band === 'opt' ? 'Optical' : 'X-Ray'}
-                    </button>
-                  ))}
-                </div>
+              {/* Astrometric Caption */}
+              <div className="pt-2 border-t border-white/10 text-[10px] font-mono text-felt-gray flex justify-between">
+                <span>{aetherViews[activeView].subtitle}</span>
               </div>
             </div>
           </div>
@@ -290,7 +253,7 @@ export const Projects: React.FC = () => {
               {/* Action Buttons: STRICTLY GITHUB ONLY - NO LIVE DEMO BUTTON */}
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <a
-                  href="https://github.com/N3GRON"
+                  href="https://github.com/N3GR0N"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-2.5 text-[11px] font-mono uppercase tracking-widest text-paper border border-white/30 pill-btn hover:border-paper hover:bg-white/10 transition-all duration-500"
@@ -381,7 +344,7 @@ export const Projects: React.FC = () => {
               {/* Action Buttons: STRICTLY GITHUB ONLY - NO LIVE DEMO BUTTON */}
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <a
-                  href="https://github.com/N3GRON"
+                  href="https://github.com/N3GR0N"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-2.5 text-[11px] font-mono uppercase tracking-widest text-paper border border-white/30 pill-btn hover:border-paper hover:bg-white/10 transition-all duration-500"
@@ -427,6 +390,26 @@ COMMIT;`}
           </div>
         </article>
       </div>
+
+      {/* Fullscreen High-Res Image Modal for AetherScope */}
+      {isZoomOpen && (
+        <div
+          className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-4 sm:p-10 cursor-zoom-out"
+          onClick={() => setIsZoomOpen(false)}
+        >
+          <div className="relative max-w-5xl w-full border border-white/20 sharp-edge bg-black overflow-hidden p-2">
+            <img
+              src={aetherViews[activeView].src}
+              alt={aetherViews[activeView].title}
+              className="w-full h-auto max-h-[85vh] object-contain mx-auto"
+            />
+            <div className="p-3 flex justify-between items-center text-[11px] font-mono text-felt-gray border-t border-white/10 mt-2">
+              <span className="text-paper">{aetherViews[activeView].title}</span>
+              <span>CLICK EN CUALQUIER LUGAR PARA CERRAR [ESC]</span>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

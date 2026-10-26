@@ -29,8 +29,8 @@
         "year": "2024 — Presente",
         "description": "Plataforma web interactiva para la exploración del espacio profundo y laboratorio espectroscópico con datos científicos reales de misiones espaciales (JWST, Hubble, Chandra, Gaia, AllWISE, DSS2). Dispone de visualización 360° en WebGL2 / Aladin Lite (Rust/WASM), slider interactivo para mezclar longitudes de onda (infrarrojo, óptico y rayos X), análisis físico-químico y exportación de catálogos en JSON con Supabase.",
         "stack": ["Next.js", "TypeScript", "WebGL2", "Rust / WASM", "Supabase", "HiPS / NASA APIs"],
-        "liveUrl": "https://aetherscope.vercel.app",
-        "repoUrl": "https://github.com/N3GRON/AetherScope"
+        "liveUrl": "https://aether-scope-two.vercel.app/",
+        "repoUrl": "https://github.com/N3GR0N/AetherScope/tree/0.1.0"
       },
       "rescuesync": {
         "title": "RescueSync / DSSD",
@@ -38,7 +38,7 @@
         "year": "2024",
         "description": "Plataforma distribuida para la coordinación de emergencias y asignación concurrente de recursos de ONGs y brigadas en tiempo real. Orquestación mediante motores de procesos BPM, seguridad basada en roles (JWT) y arquitectura de microservicios contenerizada.",
         "stack": ["Java Spring Boot", "Angular", "PostgreSQL", "Bonita BPM REST API", "Docker"],
-        "repoUrl": "https://github.com/N3GRON"
+        "repoUrl": "https://github.com/N3GR0N"
       },
       "alquilando": {
         "title": "Alquilando",
@@ -46,7 +46,7 @@
         "year": "2023 — 2024",
         "description": "Sistema backend para gestión de flotas vehiculares y reservas de alquiler, con control estricto de concurrencia, roles de usuario e integridad referencial.",
         "stack": ["Django", "Python", "PostgreSQL", "SQL"],
-        "repoUrl": "https://github.com/N3GRON"
+        "repoUrl": "https://github.com/N3GR0N"
       }
     }
   },

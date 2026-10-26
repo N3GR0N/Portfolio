@@ -183,7 +183,7 @@ export const AetherScopeShowcase: React.FC = () => {
           <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-stone-800/60">
             {/* Live Demo Button (ONLY FOR AETHERSCOPE) */}
             <a
-              href="https://aetherscope.vercel.app"
+              href="https://aether-scope-two.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-3 rounded-xl bg-gradient-to-r from-amber-600 via-bronze-600 to-amber-700 hover:from-amber-500 hover:to-bronze-500 text-stone-950 font-semibold text-xs sm:text-sm shadow-bronze-md transition-all hover:scale-[1.02] active:scale-[0.98] flex items-center gap-2 group/btn"
@@ -195,7 +195,7 @@ export const AetherScopeShowcase: React.FC = () => {
 
             {/* GitHub Repo Button */}
             <a
-              href="https://github.com/N3GRON/AetherScope"
+              href="https://github.com/N3GR0N/AetherScope/tree/0.1.0"
               target="_blank"
               rel="noopener noreferrer"
               className="px-5 py-3 rounded-xl bg-stone-900/90 hover:bg-stone-800 border border-stone-700/60 hover:border-amber-500/40 text-stone-200 hover:text-white font-medium text-xs sm:text-sm font-mono transition-all flex items-center gap-2"

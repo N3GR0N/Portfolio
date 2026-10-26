@@ -26,13 +26,13 @@ export const Footer: React.FC = () => {
           {/* Center: GitHub Link */}
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com/N3GRON"
+              href="https://github.com/N3GR0N"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-felt-gray hover:text-paper transition-colors uppercase tracking-wider"
             >
               <GithubIcon className="w-3.5 h-3.5" />
-              <span>GITHUB // N3GRON</span>
+              <span>GITHUB // N3GR0N</span>
             </a>
           </div>
 

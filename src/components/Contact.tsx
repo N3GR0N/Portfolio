@@ -89,13 +89,13 @@ export const Contact: React.FC<ContactProps> = ({ onOpenCv }) => {
               <div className="flex items-center justify-between py-3 border-b border-white/10">
                 <span className="text-felt-gray uppercase">{t('contact.githubLabel')}</span>
                 <a
-                  href="https://github.com/N3GRON"
+                  href="https://github.com/N3GR0N"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-paper hover:underline flex items-center gap-1.5"
                 >
                   <GithubIcon className="w-3.5 h-3.5" />
-                  <span>github.com/N3GRON</span>
+                  <span>github.com/N3GR0N</span>
                   <ArrowUpRight className="w-3 h-3 text-felt-gray" />
                 </a>
               </div>

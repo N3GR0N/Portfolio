@@ -118,7 +118,9 @@ export const BentoProjects: React.FC = () => {
             {language === 'es' ? 'Despliegue distribuido' : 'Distributed cluster'}
           </div>
           <a
-            href="#"
+            href="https://github.com/N3GR0N"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-4 py-2 rounded-xl bg-stone-900 hover:bg-stone-800 border border-stone-700/60 hover:border-amber-500/40 text-stone-200 hover:text-white text-xs font-mono transition-all flex items-center gap-2 group/btn"
           >
             <GithubIcon className="w-3.5 h-3.5 text-stone-400 group-hover/btn:text-amber-400" />
@@ -223,7 +225,9 @@ export const BentoProjects: React.FC = () => {
             {language === 'es' ? 'Gestión de flotas y reservas' : 'Fleet & reservation management'}
           </div>
           <a
-            href="#"
+            href="https://github.com/N3GR0N"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-4 py-2 rounded-xl bg-stone-900 hover:bg-stone-800 border border-stone-700/60 hover:border-amber-500/40 text-stone-200 hover:text-white text-xs font-mono transition-all flex items-center gap-2 group/btn"
           >
             <GithubIcon className="w-3.5 h-3.5 text-stone-400 group-hover/btn:text-amber-400" />

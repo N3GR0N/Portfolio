@@ -75,10 +75,14 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
           <div className="flex items-center gap-2 text-[11px] font-mono">
             <button
               onClick={() => setSelectedLang('es')}
-              className={`px-4 py-1.5 pill-btn border transition-all uppercase tracking-wider ${
+              style={{
+                color: selectedLang === 'es' ? '#000000' : '#a3a3a3',
+                backgroundColor: selectedLang === 'es' ? '#ffffff' : 'transparent',
+              }}
+              className={`px-4 py-1.5 pill-btn border transition-all uppercase tracking-wider font-semibold ${
                 selectedLang === 'es'
-                  ? 'border-white bg-white text-obsidian font-semibold'
-                  : 'border-white/20 text-felt-gray hover:text-paper hover:border-white/40'
+                  ? 'border-white'
+                  : 'border-white/20 hover:border-white/50 hover:!text-white'
               }`}
             >
               Versión Español (PDF)
@@ -86,10 +90,14 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
 
             <button
               onClick={() => setSelectedLang('en')}
-              className={`px-4 py-1.5 pill-btn border transition-all uppercase tracking-wider ${
+              style={{
+                color: selectedLang === 'en' ? '#000000' : '#a3a3a3',
+                backgroundColor: selectedLang === 'en' ? '#ffffff' : 'transparent',
+              }}
+              className={`px-4 py-1.5 pill-btn border transition-all uppercase tracking-wider font-semibold ${
                 selectedLang === 'en'
-                  ? 'border-white bg-white text-obsidian font-semibold'
-                  : 'border-white/20 text-felt-gray hover:text-paper hover:border-white/40'
+                  ? 'border-white'
+                  : 'border-white/20 hover:border-white/50 hover:!text-white'
               }`}
             >
               English Version (PDF)
@@ -111,7 +119,8 @@ export const CvModal: React.FC<CvModalProps> = ({ isOpen, onClose }) => {
             <a
               href={pdfUrl}
               download={downloadFileName}
-              className="inline-flex items-center gap-2 px-5 py-1.5 text-[11px] font-mono uppercase tracking-widest bg-paper text-obsidian border border-paper pill-btn hover:bg-transparent hover:text-paper transition-all font-semibold"
+              style={{ color: '#000000', backgroundColor: '#ffffff' }}
+              className="inline-flex items-center gap-2 px-5 py-1.5 text-[11px] font-mono uppercase tracking-widest border border-white pill-btn hover:!bg-transparent hover:!text-white transition-all font-semibold"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Descargar PDF</span>
