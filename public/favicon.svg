@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="none">
-  <rect width="32" height="32" rx="8" fill="#090A0F"/>
-  <rect x="0.5" y="0.5" width="31" height="31" rx="7.5" stroke="rgba(255,255,255,0.15)"/>
-  <path d="M11 9H16V20C16 22 14.5 23 12.5 23H10V20.5H12C12.8 20.5 13.5 20.2 13.5 19.5V11.5H11V9Z" fill="#818CF8"/>
-  <path d="M17.5 9H22C24 9 25.5 10.3 25.5 12.3C25.5 14.3 24 15.6 22 15.6H19.5V23H17.5V9ZM19.5 13.5H21.8C22.7 13.5 23.4 13 23.4 12.3C23.4 11.6 22.7 11.1 21.8 11.1H19.5V13.5Z" fill="#38BDF8"/>
+  <rect width="32" height="32" fill="#000000"/>
+  <rect x="0.5" y="0.5" width="31" height="31" stroke="rgba(255,255,255,0.25)"/>
+  <text x="50%" y="54%" dominant-baseline="middle" text-anchor="middle" font-family="'Inter', -apple-system, sans-serif" font-weight="700" font-size="13" letter-spacing="-0.5" fill="#FFFFFF">JP</text>
+  <circle cx="25.5" cy="25.5" r="1.5" fill="#FFFFFF"/>
 </svg>

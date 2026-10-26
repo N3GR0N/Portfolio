@@ -38,7 +38,7 @@
         "year": "2024",
         "description": "Plataforma distribuida para la coordinación de emergencias y asignación concurrente de recursos de ONGs y brigadas en tiempo real. Orquestación mediante motores de procesos BPM, seguridad basada en roles (JWT) y arquitectura de microservicios contenerizada.",
         "stack": ["Java Spring Boot", "Angular", "PostgreSQL", "Bonita BPM REST API", "Docker"],
-        "repoUrl": "https://github.com/N3GR0N"
+        "repoUrl": "https://github.com/ianetor/dssd"
       },
       "alquilando": {
         "title": "Alquilando",
@@ -46,7 +46,7 @@
         "year": "2023 — 2024",
         "description": "Sistema backend para gestión de flotas vehiculares y reservas de alquiler, con control estricto de concurrencia, roles de usuario e integridad referencial.",
         "stack": ["Django", "Python", "PostgreSQL", "SQL"],
-        "repoUrl": "https://github.com/N3GR0N"
+        "repoUrl": "https://github.com/juamparai/TTPS-Java"
       }
     }
   },

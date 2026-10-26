@@ -253,7 +253,7 @@ export const Projects: React.FC = () => {
               {/* Action Buttons: STRICTLY GITHUB ONLY - NO LIVE DEMO BUTTON */}
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <a
-                  href="https://github.com/N3GR0N"
+                  href="https://github.com/ianetor/dssd"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-2.5 text-[11px] font-mono uppercase tracking-widest text-paper border border-white/30 pill-btn hover:border-paper hover:bg-white/10 transition-all duration-500"
@@ -344,7 +344,7 @@ export const Projects: React.FC = () => {
               {/* Action Buttons: STRICTLY GITHUB ONLY - NO LIVE DEMO BUTTON */}
               <div className="mt-10 flex flex-wrap items-center gap-4">
                 <a
-                  href="https://github.com/N3GR0N"
+                  href="https://github.com/juamparai/TTPS-Java"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-6 py-2.5 text-[11px] font-mono uppercase tracking-widest text-paper border border-white/30 pill-btn hover:border-paper hover:bg-white/10 transition-all duration-500"

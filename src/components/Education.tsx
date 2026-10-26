@@ -99,8 +99,8 @@ export const Education: React.FC = () => {
               <div className="space-y-1">
                 <div className="flex items-center justify-between text-[14px] font-light text-paper">
                   <span>English / Inglés</span>
-                  <span className="px-2.5 py-0.5 text-[10px] font-mono bg-white text-obsidian font-semibold pill-btn">
-                    C1 ADVANCED
+                  <span className="text-[11px] font-mono text-felt-gray uppercase">
+                    C1 Advanced
                   </span>
                 </div>
                 <div className="text-[12px] font-mono text-felt-gray leading-relaxed">
