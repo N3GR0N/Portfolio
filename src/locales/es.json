@@ -1,0 +1,230 @@
+{
+  "nav": {
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "experience": "Trayectoria",
+    "stack": "Stack Técnico",
+    "education": "Educación",
+    "contact": "Contacto",
+    "cv": "Ver CV",
+    "downloadCv": "Descargar CV",
+    "switchLang": "Cambiar idioma"
+  },
+  "hero": {
+    "status": "Disponible para nuevos proyectos & desafíos de ingeniería",
+    "greeting": "Hola, soy",
+    "name": "Juan Pedro Suñer",
+    "role": "Desarrollador Backend / Fullstack",
+    "subrole": "Estudiante avanzado de Ingeniería en Sistemas (UNLP)",
+    "description": "Especializado en arquitecturas escalables, sistemas distribuidos, optimización backend y visualización de datos geoespaciales y astronómicos de alto rendimiento. Combino rigor académico con desarrollo moderno impulsado por IA.",
+    "ctaProjects": "Explorar Proyectos",
+    "ctaCv": "Descargar CV",
+    "ctaContact": "Iniciar Contacto",
+    "terminalTitle": "jp-suner ~ developer-env (zsh)",
+    "location": "La Plata, Buenos Aires, Argentina",
+    "quickStats": {
+      "academic": "UNLP Informática (4to año)",
+      "english": "Inglés C1 Avanzado",
+      "specialization": "Backend & Sistemas Distribuidos",
+      "uptime": "99.9% Uptime Mindset"
+    }
+  },
+  "terminal": {
+    "help": "Comandos disponibles: info, stack, contact, clear, run-astronomy",
+    "infoOutput": "Juan Pedro Suñer — Estudiante de Ingeniería en Sistemas (UNLP) & Desarrollador Backend / Fullstack. Foco en rendimiento, APIs resilientes y exploración espacial.",
+    "stackOutput": "TypeScript, Python, Java, PostgreSQL, Next.js, Spring Boot, Docker, MapLibre GL.",
+    "contactOutput": "Email: sunerjuan240@gmail.com | GitHub: github.com/N3GRON | Tel: +54 9 2281 301944"
+  },
+  "projects": {
+    "sectionBadge": "Catálogo de Ingeniería",
+    "title": "Proyectos Destacados",
+    "subtitle": "Sistemas construidos con foco en resiliencia arquitectónica, visualización de datos científicos y optimización de rendimiento.",
+    "filterAll": "Todos los Proyectos",
+    "filterAstronomy": "Astronomía & Mapas",
+    "filterDistributed": "Sistemas Distribuidos",
+    "filterBackend": "Backend & APIs",
+    "viewCode": "Código Fuente",
+    "viewDemo": "Demostración Interactiva",
+    "highlightsLabel": "Puntos Clave de Arquitectura",
+    "technologiesLabel": "Stack & Herramientas",
+    "interactivePreview": "Simulador / Visualizador en vivo",
+    "items": {
+      "aetherscope": {
+        "title": "AetherScope / FlareField",
+        "subtitle": "Plataforma de Visualización Astronómica & Alertas de Clima Espacial en Tiempo Real",
+        "categoryLabel": "Astronomía & Mapas",
+        "description": "Plataforma interactiva orientada a investigadores, operadores de drones y entusiastas del espacio para la exploración visual de catálogos estelares y el monitoreo de tormentas geomagnéticas consumiendo en tiempo real APIs de NASA (DONKI) y NOAA.",
+        "highlights": [
+          "Renderizado espacial de alto rendimiento con MapLibre GL y Canvas para visualización fluida de coordenadas celestes.",
+          "Caché estructurado y reducción de latencia en la ingesta continua de telemetría solar y geomagnética externa.",
+          "Desarrollo acelerado asistido por IA, asegurando cobertura estricta de tipos en TypeScript y tolerancia a fallos."
+        ],
+        "metrics": [
+          { "label": "Fuente de Datos", "value": "NASA DONKI & NOAA" },
+          { "label": "Visualización", "value": "60 FPS Canvas / WebGL" },
+          { "label": "Latencia API", "value": "< 120ms cached" }
+        ]
+      },
+      "rescuesync": {
+        "title": "RescueSync / DSSD",
+        "subtitle": "Plataforma Distribuida para Gestión de Catástrofes y Coordinación de Recursos",
+        "categoryLabel": "Sistemas Distribuidos",
+        "description": "Sistema integral diseñado para articular la respuesta ante catástrofes, gestionando niveles de riesgo territorial, stock crítico de recursos y validación de certificaciones de organizaciones (ONGs, bomberos, equipos médicos) mediante orquestación de procesos de negocio.",
+        "highlights": [
+          "Arquitectura desacoplada en microservicios con Java Spring Boot y persistencia transaccional en PostgreSQL.",
+          "Orquestación BPM con Bonita Engine REST API para el modelado de contingencias y aprobación de certificados.",
+          "Control de concurrencia pesimista/optimista en la asignación de insumos médicos y seguridad basada en roles (JWT)."
+        ],
+        "metrics": [
+          { "label": "Orquestación", "value": "Bonita BPM Engine" },
+          { "label": "Seguridad", "value": "JWT RBAC Multi-tenant" },
+          { "label": "Despliegue", "value": "Docker Multi-stage" }
+        ]
+      },
+      "alquilando": {
+        "title": "Alquilando & Herramientas Backend",
+        "subtitle": "Sistema de Gestión de Flota Vehicular y Servicios Modulares de Alto Rendimiento",
+        "categoryLabel": "Backend & APIs",
+        "description": "Plataforma backend de reserva y alquiler vehicular con modelo relacional optimizado, control estricto de disponibilidad temporal y servicios auxiliares en Python (Flask/Django) con autenticación segura y optimización de consultas.",
+        "highlights": [
+          "Diseño de modelo relacional robusto con integridad referencial, índices compuestos y aislamiento de transacciones.",
+          "Lógica de negocio para prevención de solapamiento de reservas de flota y asignación dinámica de tarifas.",
+          "Contenerización con Docker y automatización de pruebas unitarias para auditoría continua de código."
+        ],
+        "metrics": [
+          { "label": "Frameworks", "value": "Django & Flask" },
+          { "label": "Persistencia", "value": "PostgreSQL Indexado" },
+          { "label": "Aislamiento", "value": "Docker Containers" }
+        ]
+      }
+    }
+  },
+  "stack": {
+    "sectionBadge": "Competencias Clave",
+    "title": "Stack Tecnológico & Ecosistema",
+    "subtitle": "Herramientas seleccionadas para construir software predecible, rápido y mantenible.",
+    "searchPlaceholder": "Buscar tecnología o librería (ej: Docker, React, Spring Boot)...",
+    "categories": {
+      "languages": "Lenguajes de Programación",
+      "frontend": "Frontend & Visualización UI",
+      "backend": "Backend, Bases de Datos & Cloud",
+      "tools": "Entornos, Sistemas & DevOps",
+      "ai": "Desarrollo Impulsado por IA & Calidad"
+    }
+  },
+  "experience": {
+    "sectionBadge": "Experiencia Laboral & Académica",
+    "title": "Trayectoria Profesional",
+    "subtitle": "Acompañamiento pedagógico universitario en desarrollo de software, soporte de infraestructura crítica y proyectos freelance.",
+    "items": {
+      "academic": {
+        "role": "Colaborador Académico / Ayudante de Cátedra",
+        "institution": "Facultad de Informática — UNLP",
+        "period": "2026 – Presente",
+        "location": "La Plata, Argentina",
+        "bullets": [
+          "Responsable de asistir a los docentes de la cátedra en la resolución de consultas técnicas, corrección de trabajos prácticos y acompañamiento pedagógico en el Seminario de Lenguajes (Opción Python).",
+          "Instruí a una cohorte de más de 40 estudiantes universitarios en lógica de programación, buenas prácticas en Python y control de versiones profesional con Git, logrando una alta tasa de aprobación.",
+          "Optimicé el proceso de corrección y feedback de ejercicios mediante la estandarización de rúbricas de evaluación, reduciendo los tiempos de respuesta a los alumnos en un 30%.",
+          "Evalué proyectos de código de 4 equipos de trabajo (20 estudiantes en total), brindando feedback técnico enfocado en patrones de diseño, arquitectura limpia y testing."
+        ],
+        "metrics": [
+          { "label": "Alumnos guiados", "value": "40+ estudiantes" },
+          { "label": "Reducción de feedback", "value": "30% más rápido" }
+        ],
+        "tags": ["Python", "Git & GitHub", "Clean Code", "Pedagogía Técnica", "Code Review"]
+      },
+      "freelance": {
+        "role": "Técnico Informático Freelance",
+        "institution": "Servicios de IT Independientes",
+        "period": "2022 – Presente",
+        "location": "La Plata / Remoto",
+        "bullets": [
+          "Responsable de brindar soporte técnico a usuarios finales, especializándome en reparación de hardware, actualización de componentes y configuración avanzada de sistemas operativos.",
+          "Ejecuté diagnósticos, reparación y mantenimiento preventivo de hardware y software en PCs de escritorio y notebooks, extendiendo significativamente la vida útil de los equipos.",
+          "Gestioné de forma independiente el ciclo completo de servicio al cliente, desde la recepción del equipo y elaboración de presupuesto hasta la entrega final y asesoramiento preventivo.",
+          "Desarrollé de forma paralela proyectos propios de software (Fullstack y Backend) para fortalecer competencias técnicas, explorar arquitecturas modernas y nutrir mi portafolio activo."
+        ],
+        "metrics": [
+          { "label": "Satisfacción de clientes", "value": "100%" },
+          { "label": "Ciclo completo", "value": "End-to-End" }
+        ],
+        "tags": ["Hardware Diagnostics", "Windows & Linux OS", "Customer Relations", "PC Building"]
+      },
+      "pharmacy": {
+        "role": "Consultor IT y Soporte de Sistemas",
+        "institution": "Farmacia Napoli",
+        "period": "2019 – 2022",
+        "location": "La Plata, Argentina",
+        "bullets": [
+          "Responsable del soporte técnico diario, mantenimiento de la infraestructura informática y atención de incidentes del sistema operativo de la farmacia.",
+          "Administré el parque informático de la empresa asegurando una disponibilidad operativa del 99% en las terminales de facturación y gestión de stock farmacéutico.",
+          "Automaticé el proceso de mantenimiento y actualización del software de ventas, reduciendo los incidentes de inactividad operativa en un 25% durante horarios de alta concurrencia.",
+          "Migré e instalé nuevos puestos de trabajo y periferia de cobro, disminuyendo el tiempo medio de reparación (MTTR) ante fallas del sistema a menos de 15 minutos."
+        ],
+        "metrics": [
+          { "label": "Disponibilidad operativa", "value": "99% Uptime" },
+          { "label": "MTTR ante fallas", "value": "< 15 minutos" },
+          { "label": "Reducción caídas", "value": "25% menos downtime" }
+        ],
+        "tags": ["Infrastructure", "System Uptime", "Automation", "Disaster Recovery", "POS Systems"]
+      }
+    }
+  },
+  "education": {
+    "sectionBadge": "Formación Académica",
+    "title": "Educación Universitaria",
+    "degree": "Ingeniería en Sistemas / Ciencias de la Computación",
+    "institution": "Universidad Nacional de La Plata (UNLP)",
+    "faculty": "Facultad de Informática",
+    "period": "2023 – Presente (4to año)",
+    "status": "Estudiante regular avanzado",
+    "description": "Formación rigurosa en fundamentos de ciencias de la computación, estructuras de datos y algoritmos, bases de datos relacionales, sistemas operativos, arquitectura de computadoras, ingeniería de software y sistemas distribuidos.",
+    "languagesTitle": "Idiomas y Certificaciones",
+    "languages": {
+      "es": { "name": "Español", "level": "Nativo" },
+      "en": { "name": "Inglés", "level": "C1 Avanzado (Competencia profesional completa, fluidez técnica y lectura ágil de documentación especializada)" }
+    }
+  },
+  "contact": {
+    "sectionBadge": "Contacto Directo",
+    "title": "Construyamos algo extraordinario",
+    "subtitle": "¿Tienes un proyecto en mente, una vacante de ingeniería o quieres colaborar en sistemas distribuidos y astronomía? Escríbeme y responderé en breve.",
+    "copyEmail": "Copiar correo electrónico",
+    "emailCopied": "¡Correo copiado al portapapeles!",
+    "form": {
+      "name": "Nombre completo",
+      "email": "Correo electrónico",
+      "subject": "Asunto",
+      "message": "Mensaje",
+      "send": "Enviar Mensaje",
+      "sending": "Enviando...",
+      "success": "¡Mensaje recibido! Me pondré en contacto contigo a la brevedad.",
+      "error": "Ocurrió un error. Puedes escribirme directamente a sunerjuan240@gmail.com"
+    },
+    "directChannels": "Canales de Comunicación",
+    "emailLabel": "Correo",
+    "phoneLabel": "Teléfono / WhatsApp",
+    "locationLabel": "Ubicación",
+    "githubLabel": "Perfil de GitHub",
+    "resumeDownloadAction": "Descargar Currículum Vitae (PDF)"
+  },
+  "cvModal": {
+    "title": "Currículum Vitae — Juan Pedro Suñer",
+    "subtitle": "Selecciona la versión en el idioma que desees consultar o descargar en PDF.",
+    "spanishVersion": "Versión en Español (CV_Suner_ES.pdf)",
+    "englishVersion": "English Version (CV_Suner_EN.pdf)",
+    "downloadPdf": "Descargar Documento PDF",
+    "printView": "Imprimir / Guardar como PDF",
+    "close": "Cerrar",
+    "roleTag": "Backend / Fullstack Developer",
+    "academicTag": "Estudiante de Ingeniería en Sistemas - UNLP"
+  },
+  "footer": {
+    "brandText": "Juan Pedro Suñer",
+    "role": "Software Engineer & Full Stack Developer",
+    "tagline": "Diseñado y construido con precisión, estética developer-tool y rendimiento extremo.",
+    "backToTop": "Volver arriba",
+    "allRightsReserved": "Todos los derechos reservados."
+  }
+}
