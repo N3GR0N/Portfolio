@@ -8,6 +8,10 @@
   --color-inkstone: #181818;
   --color-felt-gray: #6d6d6d;
   --color-slate-pill: #636363;
+  --color-ash-mist: #9a9a9a;
+  --color-pewter: #808080;
+  --color-iridescent-fade: #a02d25;
+  --gradient-iridescent-fade: linear-gradient(90deg, rgb(160, 224, 171), rgb(255, 172, 46) 50%, rgb(165, 45, 37));
   --border-dark: rgba(255, 255, 255, 0.3);
   --border-light: #000000;
 }
